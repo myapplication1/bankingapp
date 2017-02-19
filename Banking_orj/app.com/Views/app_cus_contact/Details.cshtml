@@ -1,0 +1,106 @@
+﻿@model app.com.Data.app_cus_contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>app_cus_contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contact_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tele_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tele_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.brief_location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.brief_location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gps_cordinates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gps_cordinates)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

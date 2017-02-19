@@ -1,0 +1,250 @@
+﻿@model app.com.Data.app_cus_main
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>app_cus_main</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.app_cus_contact.tele_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.app_cus_contact.tele_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cus_type_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cus_type_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bran_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bran_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rel_off_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rel_off_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.middlename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.middlename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dob)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.age_cat_type_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.age_cat_type_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.occupation_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.occupation_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cus_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cus_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.img_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.img_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sign_img_url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sign_img_url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marital_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marital_status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.child_num)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.child_num)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.home_type_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.home_type_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cus_since)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cus_since)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cus_other_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cus_other_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kin_details_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kin_details_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cus_doc_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cus_doc_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.credit_limit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.credit_limit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.created_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modified_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modified_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.deleted_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deleted_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.created_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modified_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modified_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.deleted_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deleted_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
