@@ -36,16 +36,17 @@ namespace app.com.Data
         public virtual DbSet<app_kin_type> app_kin_type { get; set; }
         public virtual DbSet<app_occupation> app_occupation { get; set; }
         public virtual DbSet<app_rel_office> app_rel_office { get; set; }
+        public virtual DbSet<app_countries> app_countries { get; set; }
 
-    //    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    //{
-    //  base.OnModelCreating(modelBuilder);
+        //    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //  base.OnModelCreating(modelBuilder);
 
-    //  modelBuilder.Entity<Member>()
-    //    .HasOptional<Profile>(m => m.Profile)
-    //    .WithRequired(m => m.Member)
-    //    .Map(p => p.MapKey("MemberId"));
-    //}
+        //  modelBuilder.Entity<Member>()
+        //    .HasOptional<Profile>(m => m.Profile)
+        //    .WithRequired(m => m.Member)
+        //    .Map(p => p.MapKey("MemberId"));
+        //}
 
         public System.Data.Entity.DbSet<app.com.Models.EditCusModel> EditCusModels { get; set; }
     }

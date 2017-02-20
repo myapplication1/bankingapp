@@ -20,6 +20,14 @@ namespace app.com.Data
         public string zip { get; set; }
         public string brief_location { get; set; }
         public string gps_cordinates { get; set; }
+        public int? country_code { get; set; }
+
+
+
+
+        [ForeignKey("country_code")]
+        [InverseProperty("app_cus_contact")]
+        public virtual app_countries app_countries { get; set; }
 
         public virtual ICollection<app_cus_main> app_cus_main { get; set; }
     }

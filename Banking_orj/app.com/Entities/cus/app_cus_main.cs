@@ -10,8 +10,8 @@ namespace app.com.Data
     {
         [Key]
         public int id { get; set; }
-        public int cus_type_code { get; set; }
-        public int bran_code { get; set; }
+        public int? cus_type_code { get; set; }
+        public int? bran_code { get; set; }
         public Nullable<int> rel_off_code { get; set; }
         public string title { get; set; }
         public string firstname { get; set; }

@@ -198,6 +198,9 @@
     <Compile Include="Controllers\cus\app_cus_contactController.cs" />
     <Compile Include="Controllers\cus\CusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\cus\CusRepository - Copy.cs" />
+    <Compile Include="Entities\cus\app_countries.cs" />
+    <Compile Include="Data\cus\ICusRepository.cs" />
     <Compile Include="Entities\cus\app_cus_doc.cs" />
     <Compile Include="Entities\cus\app_cus_other_info.cs" />
     <Compile Include="Entities\cus\app_cus_type.cs" />
@@ -215,8 +218,7 @@
     <Compile Include="Data\_Initializer.cs" />
     <Compile Include="Entities\cus\app_cus_contact.cs" />
     <Compile Include="Entities\cus\app_cus_main.cs" />
-    <Compile Include="Data\cus\CusRepository.cs" />
-    <Compile Include="Data\cus\ICusRepository.cs" />
+    <Compile Include="Data\cus\UtilRepository.cs" />
     <Compile Include="Models\cus\EditCusModel.cs" />
     <Compile Include="Models\EditProfileViewModel.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
