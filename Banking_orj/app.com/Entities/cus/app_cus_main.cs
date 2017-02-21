@@ -39,7 +39,15 @@ namespace app.com.Data
         public Nullable<System.DateTime> created_date { get; set; }
         public Nullable<System.DateTime> modified_date { get; set; }
         public Nullable<System.DateTime> deleted_date { get; set; }
-        public string full_name { get; set; }
+
+        public string full_name
+        {
+            get
+            {
+                return firstname + " " + lastname;
+            }
+        }
+
 
         [ForeignKey("age_cat_type_code")]
         [InverseProperty("app_cus_main")]

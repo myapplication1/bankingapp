@@ -198,7 +198,7 @@
     <Compile Include="Controllers\cus\app_cus_contactController.cs" />
     <Compile Include="Controllers\cus\CusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\cus\CusRepository - Copy.cs" />
+    <Compile Include="Data\cus\CusRepository.cs" />
     <Compile Include="Entities\cus\app_countries.cs" />
     <Compile Include="Data\cus\ICusRepository.cs" />
     <Compile Include="Entities\cus\app_cus_doc.cs" />
@@ -910,7 +910,7 @@
     <Content Include="Views\app_cus_main\Delete.cshtml" />
     <Content Include="Views\app_cus_main\Details.cshtml" />
     <Content Include="Views\app_cus_main\Edit.cshtml" />
-    <Content Include="Views\app_cus_main\Index.cshtml" />
+    <Content Include="Views\cus\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Acknowledgements.cshtml" />

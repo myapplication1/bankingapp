@@ -25,7 +25,30 @@ namespace app.com.Data
             return _context.app_cus_main 
                            .Include("app_cus_contact")
                            .Include("app_cus_other_info")
+                           .Include("app_kin_details")
                            .Where(m => m.id == id).FirstOrDefault();
+        }
+
+        public IEnumerable<app_cus_main> GetAllCustomers(int number)
+        {
+
+            return _context.app_cus_main
+                           .Include("app_cus_contact")
+                           .Include("app_cus_other_info")
+                           .Include("app_cus_type")
+                           .Include("app_rel_office")
+                           .Include("app_kin_details").ToList().Take(number);
+                           //.Where(m => m.id == id).FirstOrDefault();
+        }
+
+        public IEnumerable<app_cus_main> Customers()
+        {
+
+            return _context.app_cus_main
+                           .Include("app_cus_contact")
+                           .Include("app_cus_other_info")
+                           .Include("app_kin_details").ToList();
+            //.Where(m => m.id == id).FirstOrDefault();
         }
 
 

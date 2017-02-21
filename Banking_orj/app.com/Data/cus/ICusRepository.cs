@@ -10,5 +10,7 @@ namespace app.com.Data
         DateTime GetCurrentDateTime();
         app_cus_main GetCustomers(int? id);
         string GetLoginUser();
+        IEnumerable<app_cus_main> GetAllCustomers(int number);
+        IEnumerable<app_cus_main> Customers();
     }
 }

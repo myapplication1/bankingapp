@@ -1,0 +1,150 @@
+﻿@model IEnumerable<app.com.Data.app_cus_main>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+<div class="loading-container">
+    <div class="loader"></div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <div class="widget">
+            <div class="widget-header ">
+                <span class="widget-caption">Customers</span>
+                <div class="widget-buttons">
+                    <a href="#" data-toggle="maximize">
+                        <i class="fa fa-expand"></i>
+                    </a>
+                    <a href="#" data-toggle="collapse">
+                        <i class="fa fa-minus"></i>
+                    </a>
+                    <a href="#" data-toggle="dispose">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="widget-body">
+                <table class="table table-striped table-bordered table-hover" id="expandabledatatable">
+                    <thead>
+                        <tr>
+                          
+                            <th width="20px ">
+
+                            </th>
+                            <th width="20px ">
+
+                            </th>
+                            <th width="20px ">
+
+                            </th>
+                            <th>
+                                Full Name
+                            </th>
+                            <th>
+                                Customer Type
+                            </th>
+                            <th>
+                                Relations Office
+                            </th>
+                            <th>
+                                Relations Office
+                            </th>
+                            <th>
+                                Customer Since
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Telephone
+                            </th>
+                        </tr>
+                    </thead>
+                    @foreach (var item_ in Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+    @*@Html.ActionLink(null, "Details", new { id = item_.cus_code } ,htmlAttributes: new {@class="typcn typcn-media-eject-outline"})*@
+    <a href=@Url.Action("Details", "cus", new {id = item_.id  })><i class="typcn typcn-media-eject-outline"  title="View Customer"></i></a>
+
+</td>
+<td>
+    @*@Html.ActionLink(null, "Edit", new { id = item_.cus_code }, htmlAttributes: new { @class = "typcn typcn-camera" })*@
+    <a href=@Url.Action("EditCustomer", "cus", new {id = item_.id})><i class="typcn typcn-edit" title="Edit Customer"></i></a>
+
+</td>
+<td>
+   
+    <a href=@Url.Action("Delete", "cus", new {id = item_.id  } )><i class="typcn typcn-delete" title="Delete Customer"></i></a>
+
+    @*@Html.ActionLink(null, "Delete", new { id = item_.cus_code }, htmlAttributes: new { @class = "typcn typcn-delete" })*@
+</td>
+<td class="center ">
+    @Html.DisplayFor(modelItem => item_.full_name)
+
+</td>
+<td class="center ">
+    @Html.DisplayFor(modelItem => item_.app_cus_type.type_name)
+
+</td>
+<td class="center ">
+    @Html.DisplayFor(modelItem => item_.app_rel_office.full_name)
+
+</td>
+                                <td class="center ">
+                                    @Html.DisplayFor(modelItem => item_.app_rel_office.full_name)
+
+                                </td>
+<td class="center ">
+    @Html.DisplayFor(modelItem => item_.created_date)
+
+</td>
+<td class="center ">
+    @Html.DisplayFor(modelItem => item_.app_cus_contact.email)
+
+</td>
+<td class="center ">
+    @Html.DisplayFor(modelItem => item_.app_cus_contact.tele_number)
+
+</td>
+                            </tr>
+
+
+
+
+
+                        </tbody>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@{
+    ViewBag.Title = "Customer";
+    ViewBag.Description = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section PageScripts{
+    <link href="~/assets/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <script src="~/assets/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/assets/js/datatable/ZeroClipboard.js"></script>
+    <script src="~/assets/js/datatable/dataTables.tableTools.min.js"></script>
+    <script src="~/assets/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="~/assets/js/datatable/datatables-init.js"></script>
+    <script>
+
+        InitiateExpandableDataTable.init();
+
+    </script>
+}

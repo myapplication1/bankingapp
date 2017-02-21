@@ -27,7 +27,15 @@ namespace app.com.Controllers
             _repository = repository;
         }
 
-       
+        // GET: app_cus_contact
+        public ActionResult Index()
+        {
+            return  View(_repository.GetAllCustomers(150));
+         //   return View(await db.app_cus_contact.ToListAsync());
+        }
+
+
+
         public ActionResult EditCustomer(int? id)
         {
 
@@ -57,6 +65,8 @@ namespace app.com.Controllers
             ViewBag.occupation_code = new SelectList(db.app_occupation, "id", "name", app_cus_main.occupation_code);
             ViewBag.rel_off_code = new SelectList(db.app_rel_office, "id", "full_name", app_cus_main.rel_off_code );
             ViewBag.countries = new SelectList(db.app_countries , "id", "name", app_cus_main.app_cus_contact.contact_code );
+            ViewBag.kin_type = new SelectList(db.app_kin_type , "id", "kin_type_name", app_cus_main.kin_details_code  );
+
             //      IEnumerable <SelectListItem> 
 
             return View(app_cus_main );
