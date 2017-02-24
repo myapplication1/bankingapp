@@ -10,6 +10,7 @@ namespace app.com.Data
     public class app_kin_details
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity )]
         public int id { get; set; }
         public int kin_type_code { get; set; }
         public string kin_details_code { get; set; }
@@ -29,8 +30,8 @@ namespace app.com.Data
       //  [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<app_cus_main> app_cus_main { get; set; }
 
-        [ForeignKey("kin_type_code")]
-        [InverseProperty("app_kin_details")]
-        public virtual app_kin_type app_kin_type { get; set; }
+        //[ForeignKey("kin_type_code")]
+        //[InverseProperty("app_kin_details")]
+        //public virtual app_kin_type app_kin_type { get; set; }
     }
 }

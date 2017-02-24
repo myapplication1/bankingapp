@@ -195,6 +195,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\app_cus_mainController.cs" />
     <Compile Include="Controllers\cus\app_cus_contactController.cs" />
     <Compile Include="Controllers\cus\CusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -906,20 +907,17 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\cus\EditCustomer.cshtml" />
-    <Content Include="Views\app_cus_main\Create.cshtml" />
-    <Content Include="Views\app_cus_main\Delete.cshtml" />
-    <Content Include="Views\app_cus_main\Details.cshtml" />
-    <Content Include="Views\app_cus_main\Edit.cshtml" />
     <Content Include="Views\cus\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Acknowledgements.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\app_cus_contact\Create.cshtml" />
-    <Content Include="Views\app_cus_contact\Delete.cshtml" />
-    <Content Include="Views\app_cus_contact\Details.cshtml" />
-    <Content Include="Views\app_cus_contact\Edit.cshtml" />
-    <Content Include="Views\app_cus_contact\Index.cshtml" />
+    <Content Include="Views\cus\CreateCustomer.cshtml" />
+    <Content Include="Views\app_cus_main\Create.cshtml" />
+    <Content Include="Views\app_cus_main\Delete.cshtml" />
+    <Content Include="Views\app_cus_main\Details.cshtml" />
+    <Content Include="Views\app_cus_main\Edit.cshtml" />
+    <Content Include="Views\app_cus_main\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

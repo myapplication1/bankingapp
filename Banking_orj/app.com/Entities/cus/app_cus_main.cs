@@ -8,38 +8,126 @@ namespace app.com.Data
 {
     public class app_cus_main
     {
+        //[Key]
+        //public int id { get; set; }
+        //public int? cus_type_code { get; set; }
+        //public int bran_code { get; set; }
+        //public Nullable<int> rel_off_code { get; set; }
+        //public string title { get; set; }
+        //public string firstname { get; set; }
+        //public string lastname { get; set; }
+        //public string middlename { get; set; }
+        //public Nullable<System.DateTime> dob { get; set; }
+        //public Nullable<int> age_cat_type_code { get; set; }
+        //public Nullable<int> gender { get; set; }
+        //public Nullable<int> occupation_code { get; set; }
+        //public int cus_code
+        //{
+        //    get
+        //    {
+        //        return id;
+        //    }
+        //}
+        //public string img_url { get; set; }
+        //public string sign_img_url { get; set; }
+        //public string marital_status { get; set; }
+        //public Nullable<int> child_num { get; set; }
+        //public string home_type_code { get; set; }
+        //public Nullable<System.DateTime> cus_since { get; set; }
+        //public Nullable<int> cus_other_code { get; set; }
+        //public Nullable<int> kin_details_code { get; set; }
+        //public Nullable<int> contact_code { get; set; }
+        //public Nullable<int> cus_doc_code { get; set; }
+        //public Nullable<decimal> credit_limit { get; set; }
+        //public string created_by { get; set; }
+        //public string modified_by { get; set; }
+        //public string deleted_by { get; set; }
+        //public Nullable<System.DateTime> created_date { get; set; }
+        //public Nullable<System.DateTime> modified_date { get; set; }
+        //public Nullable<System.DateTime> deleted_date { get; set; }
+
+        //public string full_name
+        //{
+        //    get
+        //    {
+        //        return firstname + " " + lastname;
+        //    }
+        //}
+
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-        public int? cus_type_code { get; set; }
-        public int? bran_code { get; set; }
+
+        [Required(ErrorMessage = "Type Required")]
+        public int cus_type_code { get; set; }
+
+        [Required(ErrorMessage = "Branch Required")]
+        //[StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
+        public int bran_code { get; set; }
+
         public Nullable<int> rel_off_code { get; set; }
+
         public string title { get; set; }
+
+        [Required(ErrorMessage = "Required")]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public string firstname { get; set; }
+
+        [Required(ErrorMessage = "Required")]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public string lastname { get; set; }
+
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public string middlename { get; set; }
+
+        [DataType(DataType.DateTime)]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{yyyy/MM/dd}")]
         public Nullable<System.DateTime> dob { get; set; }
+
+        //[Required(ErrorMessage = "Required")]
+        //[StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public Nullable<int> age_cat_type_code { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public Nullable<int> gender { get; set; }
+
+        [Required(ErrorMessage = "Required")]
         public Nullable<int> occupation_code { get; set; }
-        public int cus_code { get; set; }
+
+        [Required(ErrorMessage = "Required")]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
+        public string  cus_code { get; set; }
+
         public string img_url { get; set; }
         public string sign_img_url { get; set; }
+
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public string marital_status { get; set; }
+
+        [Range(0, 15, ErrorMessage = "Can only be between 0 .. 15")]
         public Nullable<int> child_num { get; set; }
         public string home_type_code { get; set; }
+
+        [DataType(DataType.DateTime)]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{yyyy/MM/dd}")]
         public Nullable<System.DateTime> cus_since { get; set; }
         public Nullable<int> cus_other_code { get; set; }
-        public Nullable<int> kin_details_code { get; set; }
+        public int kin_details_code { get; set; }
         public Nullable<int> contact_code { get; set; }
         public Nullable<int> cus_doc_code { get; set; }
+
+        [Range(1, (double)decimal.MaxValue, ErrorMessage = "value should be between{1} and {2}.")]
         public Nullable<decimal> credit_limit { get; set; }
+        //[Required]
+        //[DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public string created_by { get; set; }
         public string modified_by { get; set; }
         public string deleted_by { get; set; }
+
+
         public Nullable<System.DateTime> created_date { get; set; }
         public Nullable<System.DateTime> modified_date { get; set; }
         public Nullable<System.DateTime> deleted_date { get; set; }
-
         public string full_name
         {
             get
@@ -47,6 +135,7 @@ namespace app.com.Data
                 return firstname + " " + lastname;
             }
         }
+
 
 
         [ForeignKey("age_cat_type_code")]

@@ -9,23 +9,16 @@
 
 
 
-<form id="togglingForm" method="post" class="form-horizontal" action="@Url.Action("EditCustomer", "cus")">
+<form id="togglingForm" method="post" class="form-horizontal" action="@Url.Action("CreateCustomer", "cus")">
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="col-lg-12 col-sm-6 col-xs-12">
             <div class="widget flat radius-bordered">
                 <div class="widget-header bg-themeprimary">
-                    <span class="widget-caption">Customer : @Html.DisplayFor(model => model.firstname) @Html.DisplayFor(model => model.lastname)</span>
+                    <span class="widget-caption">Customer : New</span>
                 </div>
               
-                @*get relation iDs*@ 
-                @Html.HiddenFor(model => model.cus_code)
-                @Html.HiddenFor(model => model.id)
-                @Html.HiddenFor(model => model.contact_code)
-                @Html.HiddenFor(model => model.cus_other_code)
-
-
-
+           
 
                 <div class="widget-body">
                     <div class="widget-main ">
@@ -70,6 +63,7 @@
 
                             @*    <-- state tab control ----></-->*@
 
+                            
 
                             <div class="tab-content tabs-flat">
                                 <div id="personal" class="tab-pane in active">
@@ -95,17 +89,6 @@
                                                                 </div>
 
 
-                                                                @*customer ID textbox*@
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-4 control-label">Customer Code</label>
-                                                                    <div class="col-lg-8">
-
-                                                                        @Html.EditorFor(model => model.cus_code , new { htmlAttributes = new { @class = "form-control", disabled = "true" } })
-                                                                        @Html.ValidationMessageFor(model => model.cus_code, "", new { @class = "text-danger" })
-
-
-                                                                    </div>
-                                                                </div>
 
                                                                 @*full name textbox*@
                                                                 <div class="form-group">
@@ -135,10 +118,9 @@
                                                                     <label class="col-lg-4 control-label">Customer Type</label>
                                                                     <div class="col-lg-8">
 
-                                                                      @Html.DropDownList("cus_type_code", null, htmlAttributes: new { @class = "form-control" })
+                                                                      @Html.DropDownList("cus_type_code", null,string.Empty , htmlAttributes: new { @class = "form-control" , data_placeholder = "Please select a product" })
                                                                       @Html.ValidationMessageFor(model => model.cus_type_code, "", new { @class = "text-danger" })
-
-
+                                                                        
                                                                     </div>
                                                                      
                                                                 </div>
@@ -149,7 +131,7 @@
                                                                 <div class="form-group">
                                                                     <label class="col-lg-4 control-label">Gender</label>
                                                                     <div class="col-lg-8">
-                                                                       @Html.DropDownList("gender", null, htmlAttributes: new { @class = "form-control" })
+                                                                       @Html.DropDownList("gender", null, string.Empty,htmlAttributes: new { @class = "form-control" })
                                                                        @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
                                                                     </div>
                                                                 </div>
@@ -162,7 +144,7 @@
                                                                     <label class="col-lg-4 control-label">Age Category</label>
                                                                     <div class="col-lg-8">
                                                                
-                                                                       @Html.DropDownList("age_cat_type_code", null, htmlAttributes: new { @class = "form-control" })
+                                                                       @Html.DropDownList("age_cat_type_code", null,string.Empty ,  new { @class = "form-control" })
                                                                        @Html.ValidationMessageFor(model => model.age_cat_type_code, "", new { @class = "text-danger" })
                                                                         
                                                                     </div>
@@ -185,7 +167,7 @@
                                                                   <div class="form-group">
                                                                     <label class="col-lg-4 control-label">Occupation</label>
                                                                     <div class="col-lg-8">
-                                                                         @Html.DropDownList("occupation_code", null, htmlAttributes: new { @class = "form-control" })
+                                                                         @Html.DropDownList("occupation_code", null,string .Empty, htmlAttributes: new { @class = "form-control" })
                                                                          @Html.ValidationMessageFor(model => model.app_occupation .name , "", new { @class = "text-danger" })
                                                                      </div>
                                                                 </div>
@@ -270,7 +252,7 @@
                                                             <div class="form-group">
                                                                 <label class="col-lg-4 control-label">Relation Officer <sup>*</sup></label>
                                                                 <div class="col-lg-8">
-                                                                    @Html.DropDownList("rel_off_code", null, htmlAttributes: new { @class = "form-control" })
+                                                                    @Html.DropDownList("rel_off_code", null,string.Empty , htmlAttributes: new { @class = "form-control" })
                                                                     @Html.ValidationMessageFor(model => model.rel_off_code, "", new { @class = "text-danger" })
                                                                 </div>
                                                             </div>
@@ -278,7 +260,7 @@
                                                             <div class="form-group">
                                                                 <label class="col-lg-4 control-label">Home Type<sup>*</sup></label>
                                                                 <div class="col-lg-8">
-                                                                    @Html.DropDownList("home_type_code", null, htmlAttributes: new { @class = "form-control" })
+                                                                    @Html.DropDownList("home_type_code", null,string.Empty , htmlAttributes: new { @class = "form-control" })
                                                                     @Html.ValidationMessageFor(model => model.home_type_code, "", new { @class = "text-danger" })
                                                                 </div>
                                                             </div>
@@ -314,8 +296,8 @@
                                                               <div class="form-group">
                                                                 <label class="col-lg-4 control-label">Branch</label>
                                                                 <div class="col-lg-6">
-                                                                    @Html.DropDownList("bran_code", null, htmlAttributes: new { @class = "form-control" })
-                                                                    @Html.ValidationMessageFor(model => model.bran_code , "", new { @class = "text-danger" })
+                                                                    @Html.DropDownList("bran_code", null,string.Empty , htmlAttributes: new { @class = "form-control" })
+                                                                    @Html.ValidationMessageFor(model => model.bran_code   , "", new { @class = "text-danger" })
                                                                 </div>
                                                             </div>
                                                             
@@ -631,8 +613,8 @@
                                         <div class="form-group">
                                             <label class="col-lg-4 control-label">Next of Kin Type</label>
                                             <div class="col-lg-6">
-                                                @Html.DropDownList("kin_type", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.app_kin_details.id, "", new { @class = "text-danger" })
+                                                @*@Html.DropDownList("kin_type", null,string.Empty , htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.app_kin_details.id, "", new { @class = "text-danger" })*@
                                             </div>
                                         </div>
 

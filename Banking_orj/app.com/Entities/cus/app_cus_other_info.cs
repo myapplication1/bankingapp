@@ -9,6 +9,7 @@ namespace app.com.Data
     public class app_cus_other_info
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         public string cus_other_code { get; set; }
         public string verification_id { get; set; }

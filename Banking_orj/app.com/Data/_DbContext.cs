@@ -33,7 +33,7 @@ namespace app.com.Data
         public virtual DbSet<app_gender> app_gender { get; set; }
         public virtual DbSet<app_home_type> app_home_type { get; set; }
         public virtual DbSet<app_kin_details> app_kin_details { get; set; }
-        public virtual DbSet<app_kin_type> app_kin_type { get; set; }
+        //public virtual DbSet<app_kin_type> app_kin_type { get; set; }
         public virtual DbSet<app_occupation> app_occupation { get; set; }
         public virtual DbSet<app_rel_office> app_rel_office { get; set; }
         public virtual DbSet<app_countries> app_countries { get; set; }

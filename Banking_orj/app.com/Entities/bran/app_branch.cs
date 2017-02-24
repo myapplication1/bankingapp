@@ -19,7 +19,7 @@ namespace app.com.Data
         public string zip { get; set; }
         public string assets { get; set; }
 
-        [ForeignKey("bran_code")]
+        [ForeignKey("bran_type_code")]
         [InverseProperty("app_branch")]
         public virtual app_bran_type app_bran_type { get; set; }
        // [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -17,25 +17,25 @@
         @Html.HiddenFor(model => model.id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.cus_type_code, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.cus_type_code, "cus_type_code", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.cus_type_code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("cus_type_code", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.cus_type_code, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.bran_code, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.bran_code, "bran_code", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.bran_code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("bran_code", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.bran_code, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.rel_off_code, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.rel_off_code, "rel_off_code", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.rel_off_code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("rel_off_code", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.rel_off_code, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -81,9 +81,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.age_cat_type_code, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.age_cat_type_code, "age_cat_type_code", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.age_cat_type_code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("age_cat_type_code", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.age_cat_type_code, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -97,18 +97,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.occupation_code, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.occupation_code, "occupation_code", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.occupation_code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("occupation_code", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.occupation_code, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.cus_code, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cus_code, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cus_code, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -161,17 +153,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.cus_other_code, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.cus_other_code, "cus_other_code", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.cus_other_code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("cus_other_code", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.cus_other_code, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.kin_details_code, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.kin_details_code, "kin_details_code", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.kin_details_code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("kin_details_code", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.kin_details_code, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -185,9 +177,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.cus_doc_code, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.cus_doc_code, "cus_doc_code", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.cus_doc_code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("cus_doc_code", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.cus_doc_code, "", new { @class = "text-danger" })
             </div>
         </div>

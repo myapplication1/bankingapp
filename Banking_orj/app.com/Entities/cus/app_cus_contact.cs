@@ -8,10 +8,13 @@ namespace app.com.Data
     public class app_cus_contact
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-        public int? contact_code { get; set; }
+        public int contact_code { get; set; }
         public string tele_number { get; set; }
         public string fax { get; set; }
+
+        [DataType(DataType.EmailAddress, ErrorMessage = "Not a valid email address")]
         public string email { get; set; }
         public string address1 { get; set; }
         public string address2 { get; set; }

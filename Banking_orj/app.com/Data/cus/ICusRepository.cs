@@ -6,11 +6,12 @@ namespace app.com.Data
 {
     public interface ICusRepository
     {
-        IEnumerable<SelectListItem> GetCountries();
+        //IEnumerable<SelectListItem> GetCountries();
         DateTime GetCurrentDateTime();
         app_cus_main GetCustomers(int? id);
         string GetLoginUser();
         IEnumerable<app_cus_main> GetAllCustomers(int number);
         IEnumerable<app_cus_main> Customers();
+        string  GetCustomerCode(int x);
     }
 }
