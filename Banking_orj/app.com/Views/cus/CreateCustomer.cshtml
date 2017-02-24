@@ -11,6 +11,14 @@
 
 <form id="togglingForm" method="post" class="form-horizontal" action="@Url.Action("CreateCustomer", "cus")">
     @Html.AntiForgeryToken()
+    @*-----save andcancel button *@
+    <div class="form-group">
+        <div class="col-lg-offset-4 col-lg-8">
+            <input name="btn_edit" id="btn_edit" class="btn btn-palegreen" type="submit" value="Save" />
+
+            <input name="btn_cancel" id="btn_cancel" class="btn btn-danger" type="submit" value="Cancel" />
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12 col-sm-6 col-xs-12">
             <div class="widget flat radius-bordered">
@@ -199,14 +207,7 @@
 
                                                                 <hr class="wide" />
 
-                                                                @*-----save andcancel button *@
-                                                                <div class="form-group">
-                                                                    <div class="col-lg-offset-4 col-lg-8">
-                                                                        <input name="btn_edit" id="btn_edit" class="btn btn-palegreen" type="submit" value="Save" />
-
-                                                                        <input name="btn_cancel" id="btn_cancel" class="btn btn-danger" type="submit" value="Cancel" />
-                                                                    </div>
-                                                                </div>
+                                                             
 
                                                             </form>
                                                         </div>
