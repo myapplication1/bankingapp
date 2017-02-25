@@ -73,15 +73,16 @@ namespace app.com.Data
         [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public string firstname { get; set; }
 
-        [Required(ErrorMessage = "Required")]
+        //[Required(ErrorMessage = "Required")]
         [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public string lastname { get; set; }
 
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
         public string middlename { get; set; }
 
-        [DataType(DataType.DateTime)]
-        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{yyyy/MM/dd}")]
+        [Required(ErrorMessage = "Required")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<System.DateTime> dob { get; set; }
 
         //[Required(ErrorMessage = "Required")]
@@ -94,7 +95,7 @@ namespace app.com.Data
         [Required(ErrorMessage = "Required")]
         public Nullable<int> occupation_code { get; set; }
 
-        [Required(ErrorMessage = "Required")]
+       // [Required(ErrorMessage = "Required")]
         [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public string  cus_code { get; set; }
 
@@ -108,7 +109,10 @@ namespace app.com.Data
         public Nullable<int> child_num { get; set; }
         public string home_type_code { get; set; }
 
-        [DataType(DataType.DateTime)]
+        [Required(ErrorMessage = "Required")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{yyyy/MM/dd}")]
         public Nullable<System.DateTime> cus_since { get; set; }
         public Nullable<int> cus_other_code { get; set; }

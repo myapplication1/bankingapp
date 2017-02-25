@@ -44,6 +44,8 @@ namespace app.com
                 "~/assets/js/slimscroll/jquery.slimscroll.min.js"
                 ));
 
+          
+
             bundles.Add(new ScriptBundle("~/bundles/beyond").Include(
                 "~/assets/js/beyond.min.js"));
 

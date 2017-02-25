@@ -123,7 +123,7 @@ namespace app.com.Controllers
                 return RedirectToAction("Index");
              }
 
-            //var errors = ModelState.Values.SelectMany(v => v.Errors);
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
             ViewBag.countries = new SelectList(db.app_countries, "id", "name");
             ViewBag.home_type_code = new SelectList(db.app_home_type, "home_code", "type_name", app_cus_main.home_type_code);
             ViewBag.gender = new SelectList(db.app_gender, "gender_code", "sex", app_cus_main.gender);
