@@ -70,11 +70,11 @@ namespace app.com.Data
         public string title { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
         public string firstname { get; set; }
 
         //[Required(ErrorMessage = "Required")]
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
         public string lastname { get; set; }
 
         [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
@@ -96,16 +96,16 @@ namespace app.com.Data
         public Nullable<int> occupation_code { get; set; }
 
        // [Required(ErrorMessage = "Required")]
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
+        //[StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public string  cus_code { get; set; }
 
         public string img_url { get; set; }
         public string sign_img_url { get; set; }
 
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
+     //   [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
         public string marital_status { get; set; }
 
-        [Range(0, 15, ErrorMessage = "Can only be between 0 .. 15")]
+        [Range(0, 15, ErrorMessage = "Can only be between 0 .. 100")]
         public Nullable<int> child_num { get; set; }
         public string home_type_code { get; set; }
 

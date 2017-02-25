@@ -12,9 +12,19 @@ namespace app.com.Data
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         public string cus_other_code { get; set; }
+
+        [StringLength(30, MinimumLength = 5, ErrorMessage = "Maximun Length 30")]
         public string verification_id { get; set; }
+        [Required]
+        [MaxLength(9)]
+        [MinLength(1)]
+        [RegularExpression("^[0-9]*$", ErrorMessage = " must be numeric")]
         public string ssn { get; set; }
+
+        [StringLength(30, MinimumLength = 5, ErrorMessage = "Maximun Length 30")]
         public string tax_number { get; set; }
+
+        [StringLength(30, MinimumLength = 5, ErrorMessage = "Maximun Length 30")]
         public string security_group { get; set; }
 
        // [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

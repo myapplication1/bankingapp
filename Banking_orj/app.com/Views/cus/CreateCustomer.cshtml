@@ -9,17 +9,18 @@
 
 
 
-<form id="togglingForm" method="post" class="form-horizontal" action="@Url.Action("CreateCustomer", "cus")">
+<form id="html5Form" method="post" class="form-horizontal" action="@Url.Action("CreateCustomer", "cus")">
     @Html.AntiForgeryToken()
     @*-----save andcancel button *@
     <div class="form-group">
         <div class="col-lg-offset-4 col-lg-8">
             <input name="btn_edit" id="btn_edit" class="btn btn-palegreen" type="submit" value="Save" />
+            <input name="btn_cancel" id="btn_cancel" class="btn btn btn-danger" value="Cancel" onclick="@("window.location.href='" + @Url.Action("Index", "cus") + "'");" />
 
-            <input name="btn_cancel" id="btn_cancel" class="btn btn-danger" type="submit" value="Cancel" />
+         
         </div>
     </div>
-    <div class="row">
+    
         <div class="col-lg-12 col-sm-6 col-xs-12">
             <div class="widget flat radius-bordered">
                 <div class="widget-header bg-themeprimary">
@@ -87,11 +88,7 @@
                                                     <div class="widget radius-bordered">
 
                                                         <div class="widget-body">
-                                                            <form id="registrationForm" method="post" class="form-horizontal"
-                                                                  data-bv-message="This value is not valid"
-                                                                  data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
-                                                                  data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
-                                                                  data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                                                            
                                                                 <div class="form-title">
                                                                     Basic Customer Info
                                                                 </div>
@@ -192,6 +189,9 @@
                                                                           new SelectListItem{ Text="Divorced", Value="2"}
                                                                                                                        }, "")
                                                                     </div>
+                                                                    @Html.ValidationMessageFor(model => model.marital_status , "", new { @class = "text-danger" })
+
+
                                                                 </div>
 
                                                                 @*-----children----- textbox*@
@@ -209,7 +209,7 @@
 
                                                              
 
-                                                            </form>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -318,10 +318,11 @@
                                 </div>
 
                                 <div id="contact" class="tab-pane">
-                                    <div id="contacts" class="tab-pane">
+                                   
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="profile-contacts">
+                                                <div class="widget radius-bordered">
+
 
                                                     <div class="profile-badge orange"><i class="fa fa-phone orange"></i><span>Contacts</span></div>
                                                     <div class="contact-info">
@@ -332,8 +333,8 @@
                                                                 @*contact telle phone details*@
                                                                 <div class="col-lg-6">
 
-                                                                    @Html.EditorFor(model => model.app_cus_contact.tele_number , new { htmlAttributes = new { @class = "form-control" } })
-                                                                    @Html.ValidationMessageFor(model => model.app_cus_contact.tele_number , "", new { @class = "text-danger" })
+                                                                    @Html.EditorFor(model => model.app_cus_contact.tele_number, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @Html.ValidationMessageFor(model => model.app_cus_contact.tele_number, "", new { @class = "text-danger" })
 
                                                                 </div>
 
@@ -346,7 +347,7 @@
 
                                                                     @Html.EditorFor(model => model.app_cus_contact.email, new { htmlAttributes = new { @class = "form-control" } })
                                                                     @Html.ValidationMessageFor(model => model.app_cus_contact.email, "", new { @class = "text-danger" })
-
+                                                                     
                                                                 </div>
 
                                                             </div>
@@ -355,8 +356,8 @@
                                                                 @*contact fax details*@
                                                                 <div class="col-lg-6">
 
-                                                                    @Html.EditorFor(model => model.app_cus_contact.fax , new { htmlAttributes = new { @class = "form-control" } })
-                                                                    @Html.ValidationMessageFor(model => model.app_cus_contact.fax , "", new { @class = "text-danger" })
+                                                                    @Html.EditorFor(model => model.app_cus_contact.fax, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @Html.ValidationMessageFor(model => model.app_cus_contact.fax, "", new { @class = "text-danger" })
 
                                                                 </div>
 
@@ -374,7 +375,7 @@
                                                             @*contact address1 details*@
                                                             <div class="col-lg-6">
 
-                                                                @Html.EditorFor(model => model.app_cus_contact .address1 , new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.EditorFor(model => model.app_cus_contact.address1, new { htmlAttributes = new { @class = "form-control" } })
                                                                 @Html.ValidationMessageFor(model => model.app_cus_contact.address1, "", new { @class = "text-danger" })
 
                                                             </div>
@@ -397,8 +398,8 @@
                                                             @*contact tab details*@
                                                             <div class="col-lg-6">
 
-                                                                @Html.EditorFor(model => model.app_cus_contact .city  , new { htmlAttributes = new { @class = "form-control" } })
-                                                                @Html.ValidationMessageFor(model => model.app_cus_contact.city , "", new { @class = "text-danger" })
+                                                                @Html.EditorFor(model => model.app_cus_contact.city, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.app_cus_contact.city, "", new { @class = "text-danger" })
 
                                                             </div>
 
@@ -407,7 +408,7 @@
                                                             <label class="col-lg-4 control-label">Country</label>
                                                             @*contact country details*@
                                                             <div class="col-lg-6">
-                                                                                                                           
+
                                                                 @Html.DropDownList("countries", null, htmlAttributes: new { @class = "form-control" })
                                                                 @Html.ValidationMessageFor(model => model.app_cus_contact.country_code, "", new { @class = "text-danger" })
 
@@ -419,15 +420,16 @@
                                                             @*contact country details*@
                                                             <div class="col-lg-6">
                                                                 @Html.TextAreaFor(model => model.app_cus_contact.brief_location, 3, 10, new { @class = "form-control" })
-                                                                @Html.ValidationMessageFor(model => model.app_cus_contact.brief_location , "", new { @class = "text-danger" })
-                                                              
+                                                                @Html.ValidationMessageFor(model => model.app_cus_contact.brief_location, "", new { @class = "text-danger" })
+
 
                                                             </div>
 
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </div>
+
                                             </div>
                                             <div class="col-md-6">
                                                 <div id="contact-map" class="animated flipInY">
@@ -438,7 +440,7 @@
 
                                             </div>
                                         </div>
-                                    </div>
+                                 
                                 </div>
 
                                 <div id="other" class="tab-pane">
@@ -612,7 +614,7 @@
                                         <hr class="wide" />
                                         @*----branch--------------- limite*@
                                         <div class="form-group">
-                                            <label class="col-lg-4 control-label">Next of Kin Type</label>
+                                        @*    <label class="col-lg-4 control-label">Next of Kin Type</label>*@
                                             <div class="col-lg-6">
                                                 @*@Html.DropDownList("kin_type", null,string.Empty , htmlAttributes: new { @class = "form-control" })
                                                 @Html.ValidationMessageFor(model => model.app_kin_details.id, "", new { @class = "text-danger" })*@
@@ -624,6 +626,7 @@
                                  
                                
                 </div>
+
                                 <div id="doc" class="tab-pane">
 
                                    coming soon v2
