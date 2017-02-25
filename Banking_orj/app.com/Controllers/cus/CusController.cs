@@ -43,6 +43,7 @@ namespace app.com.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             app_cus_main app_cus_main = await db.app_cus_main.FindAsync(id);
+         
             if (app_cus_main == null)
             {
                 return HttpNotFound();
@@ -59,7 +60,7 @@ namespace app.com.Controllers
             ViewBag.contact_code = new SelectList(db.app_cus_contact, "id", "email", app_cus_main.contact_code);
             ViewBag.age_cat_type_code = new SelectList(db.app_age_cate, "id", "name_of_cat", app_cus_main.age_cat_type_code);
             ViewBag.bran_code = new SelectList(db.app_branch, "id", "branch_name", app_cus_main.bran_code);
-            ViewBag.countries = new SelectList(db.app_countries, "id", "name", app_cus_main.app_cus_contact.contact_code);
+            ViewBag.countries = new SelectList(db.app_countries, "id", "name", app_cus_main.app_cus_contact.country_code);
 
             //ViewBag.age_cat_type_code = new SelectList(db.app_age_cate, "age_code", "name_of_cat", app_cus_main.age_cat_type_code);
             //ViewBag.gender = new SelectList(db.app_branch, "bran_code", "branch_name", app_cus_main.gender);
@@ -82,6 +83,7 @@ namespace app.com.Controllers
         // GET: app_cus_main/Create
         public ActionResult CreateCustomer()
         {
+            ViewBag.alert = "";
             ViewBag.gender = new SelectList(db.app_gender, "id", "sex");
             ViewBag.home_type_code = new SelectList(db.app_home_type, "id", "type_name");
             ViewBag.countries = new SelectList(db.app_countries, "id", "name");
@@ -110,18 +112,23 @@ namespace app.com.Controllers
                                                     , app_kin_details app_kin_details
                                                      )
         {
+            ViewBag.alert = "";
             if (ModelState.IsValid)
-            {                        
+            {
+                app_cus_main.status = "ini";
                 app_cus_main.app_cus_contact = app_cus_contact;
                 app_cus_main.app_kin_details = app_kin_details;
                 app_cus_main.app_cus_other_info = app_cus_other_info;
-                app_cus_main.cus_code =_repository.GetCustomerCode(app_cus_main.id);
+                app_cus_main.cus_code = _repository.GetCustomerCode(app_cus_main.id);
                 db.app_cus_main.Add(app_cus_main);
                 db.app_cus_contact.Add(app_cus_contact);
                 db.app_cus_other_info.Add(app_cus_other_info);
                 await db.SaveChangesAsync();
+                ViewBag.alert = "saved";
                 return RedirectToAction("Index");
-             }
+            }
+            else
+            { ViewBag.alert = "error"; }
 
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             ViewBag.countries = new SelectList(db.app_countries, "id", "name");

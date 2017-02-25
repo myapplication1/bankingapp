@@ -15,7 +15,7 @@ namespace app.com.Data
         public int kin_type_code { get; set; }
         public string kin_details_code { get; set; }
 
-        public string full_name { get; set; }
+       
         [Required(ErrorMessage = "Required")]
         [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
         public string firstname { get; set; }
@@ -36,7 +36,7 @@ namespace app.com.Data
         [Required(ErrorMessage = "Your must provide a PhoneNumber")]
         [Display(Name = "Home Phone")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number -(777-777-7777)")]
         public string tele_num_rel { get; set; }
 
         [DataType(DataType.EmailAddress, ErrorMessage = "Invalid email")]
@@ -61,8 +61,14 @@ namespace app.com.Data
     
         [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
         public string state { get; set; }
-
-      //  [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public string full_name
+        {
+            get
+            {
+                return firstname + " " + lastname;
+            }
+        }
+        //  [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<app_cus_main> app_cus_main { get; set; }
 
         //[ForeignKey("kin_type_code")]

@@ -127,7 +127,7 @@ namespace app.com.Data
         public string created_by { get; set; }
         public string modified_by { get; set; }
         public string deleted_by { get; set; }
-
+        public string status { get; set; }
 
         public Nullable<System.DateTime> created_date { get; set; }
         public Nullable<System.DateTime> modified_date { get; set; }

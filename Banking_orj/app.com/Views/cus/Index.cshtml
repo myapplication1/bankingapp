@@ -59,9 +59,7 @@
                             <th>
                                 Customer Since
                             </th>
-                            <th>
-                                Email
-                            </th>
+                            
                             <th>
                                 Telephone
                             </th>
@@ -102,24 +100,18 @@
     @Html.DisplayFor(modelItem => item_.app_rel_office.full_name)
 
 </td>
-                                <td class="center ">
-                                    @Html.DisplayFor(modelItem => item_.app_rel_office.full_name)
-
-                                </td>
+                               
 <td class="center ">
-    @Html.DisplayFor(modelItem => item_.created_date)
+    @Html.DisplayFor(modelItem => item_.cus_since)
 
 </td>
-<td class="center ">
-    @Html.DisplayFor(modelItem => item_.app_cus_contact.email)
 
-</td>
 <td class="center ">
     @Html.DisplayFor(modelItem => item_.app_cus_contact.tele_number)
 
 </td>
                                 <td class="center ">
-                                    @Html.DisplayFor(modelItem => item_.app_cus_contact.tele_number)
+                                    @Html.DisplayFor(modelItem => item_.status)
 
                                 </td>
                             </tr>

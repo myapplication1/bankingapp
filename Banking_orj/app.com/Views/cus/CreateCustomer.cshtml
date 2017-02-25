@@ -5,9 +5,25 @@
     ViewBag.Description = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-
+@if (ViewBag.alert == "error") {
+<div class="alert alert-danger fade in">
+    <button class="close" data-dismiss="alert">
+        ×
+    </button>
+    <i class="fa-fw fa fa-times"></i>
+    <strong>Error!</strong> @Html.ValidationSummary(false).
+</div>
+}
+@if (ViewBag.alert == "saved")
+{
+    <div class="alert alert-danger fade in">
+        <button class="close" data-dismiss="alert">
+            ×
+        </button>
+        <i class="fa-fw fa fa-times"></i>
+        <strong>Error!</strong> Data Saved.
+    </div>
+}
 
 <form id="html5Form" method="post" class="form-horizontal" action="@Url.Action("CreateCustomer", "cus")">
     @Html.AntiForgeryToken()
@@ -646,13 +662,6 @@
 @*end*@
 
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        var msg = '@ViewBag.Message';
-
-        alert(msg);
-    });
-</script>
 
 <script type="text/javascript">
     $('.datepicker').datepicker(); //Initialise any date pickers
