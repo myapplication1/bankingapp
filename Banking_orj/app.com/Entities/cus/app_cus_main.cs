@@ -107,8 +107,7 @@ namespace app.com.Data
 
         [Range(0, 15, ErrorMessage = "Can only be between 0 .. 100")]
         public Nullable<int> child_num { get; set; }
-        public string home_type_code { get; set; }
-
+      
         [Required(ErrorMessage = "Required")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
@@ -119,7 +118,7 @@ namespace app.com.Data
         public int kin_details_code { get; set; }
         public Nullable<int> contact_code { get; set; }
         public Nullable<int> cus_doc_code { get; set; }
-
+        public Nullable<int> home_type_code { get; set; }
         [Range(1, (double)decimal.MaxValue, ErrorMessage = "value should be between{1} and {2}.")]
         public Nullable<decimal> credit_limit { get; set; }
         //[Required]
@@ -173,6 +172,10 @@ namespace app.com.Data
         [ForeignKey("occupation_code")]
         [InverseProperty("app_cus_main")]
         public virtual app_occupation app_occupation { get; set; }
+
+        [ForeignKey("home_type_code")]
+        [InverseProperty("app_cus_main")]
+        public virtual app_home_type app_home_type { get; set; }
 
         [ForeignKey("rel_off_code")]
         [InverseProperty("app_cus_main")]

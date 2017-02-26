@@ -36,41 +36,34 @@ namespace app.com.Controllers
 
 
 
-        public async Task<ActionResult> EditCustomer(int? id)
+        public ActionResult EditCustomer(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            app_cus_main app_cus_main = await db.app_cus_main.FindAsync(id);
+            app_cus_main  app_cus_main = _repository.GetCustomers(id);
          
             if (app_cus_main == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.age_cat_type_code = new SelectList(db.app_age_cate, "id", "age_code", app_cus_main.age_cat_type_code);
+            ViewBag.age_cat_type_code = new SelectList(db.app_age_cate, "id", "name_of_cat", app_cus_main.age_cat_type_code);
             ViewBag.bran_code = new SelectList(db.app_branch, "id", "branch_name", app_cus_main.bran_code);
             ViewBag.contact_code = new SelectList(db.app_cus_contact, "id", "tele_number", app_cus_main.contact_code);
             ViewBag.cus_doc_code = new SelectList(db.app_cus_doc, "id", "cus_doc_name", app_cus_main.cus_doc_code);
             ViewBag.cus_other_code = new SelectList(db.app_cus_other_info, "id", "cus_other_code", app_cus_main.cus_other_code);
-            ViewBag.cus_type_code = new SelectList(db.app_cus_type, "id", "cus_type_code", app_cus_main.cus_type_code);
+            ViewBag.cus_type_code = new SelectList(db.app_cus_type, "id", "type_name", app_cus_main.cus_type_code);
             ViewBag.kin_details_code = new SelectList(db.app_kin_details, "id", "kin_details_code", app_cus_main.kin_details_code);
-            ViewBag.occupation_code = new SelectList(db.app_occupation, "id", "occ_code", app_cus_main.occupation_code);
-            ViewBag.rel_off_code = new SelectList(db.app_rel_office, "id", "rel_code", app_cus_main.rel_off_code);
+            ViewBag.occupation_code = new SelectList(db.app_occupation, "id", "name", app_cus_main.occupation_code);
+            ViewBag.rel_off_code = new SelectList(db.app_rel_office, "id", "full_name", app_cus_main.rel_off_code);
             ViewBag.contact_code = new SelectList(db.app_cus_contact, "id", "email", app_cus_main.contact_code);
             ViewBag.age_cat_type_code = new SelectList(db.app_age_cate, "id", "name_of_cat", app_cus_main.age_cat_type_code);
             ViewBag.bran_code = new SelectList(db.app_branch, "id", "branch_name", app_cus_main.bran_code);
             ViewBag.countries = new SelectList(db.app_countries, "id", "name", app_cus_main.app_cus_contact.country_code);
-
-            //ViewBag.age_cat_type_code = new SelectList(db.app_age_cate, "age_code", "name_of_cat", app_cus_main.age_cat_type_code);
-            //ViewBag.gender = new SelectList(db.app_branch, "bran_code", "branch_name", app_cus_main.gender);
-            //ViewBag.contact_code = new SelectList(db.app_cus_contact, "contact_code", "tele_number", app_cus_main.contact_code);
-            //ViewBag.cus_doc_code = new SelectList(db.app_cus_doc, "cus_doc_code", "cus_doc_name", app_cus_main.cus_doc_code);
-            //ViewBag.cus_other_code = new SelectList(db.app_cus_other_info, "cus_other_code", "verification_id", app_cus_main.cus_other_code);
-            //ViewBag.cus_type_code = new SelectList(db.app_cus_type, "cus_type_code", "type_name", app_cus_main.cus_type_code);
-            ViewBag.gender = new SelectList(db.app_gender, "gender_code", "sex", app_cus_main.gender);
+             ViewBag.gender = new SelectList(db.app_gender, "id", "sex", app_cus_main.gender);
             //ViewBag.gender = new SelectList(db.app_gender, "gender_code", "sex", app_cus_main.gender);
-            ViewBag.home_type_code = new SelectList(db.app_home_type, "home_code", "type_name", app_cus_main.home_type_code);
+            ViewBag.home_type_code = new SelectList(db.app_home_type, "id", "type_name", app_cus_main.home_type_code);
             //ViewBag.kin_details_code = new SelectList(db.app_kin_details, "kin_details_code", "kin_type_code", app_cus_main.kin_details_code);
             //ViewBag.occupation_code = new SelectList(db.app_occupation, "occ_code", "name", app_cus_main.occupation_code);
             //ViewBag.rel_off_code = new SelectList(db.app_rel_office, "rel_code", "full_name", app_cus_main.rel_off_code);
@@ -105,11 +98,12 @@ namespace app.com.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateCustomer([Bind(Include = "id,bran_code,cus_type_code,title,firstname,lastname,middlename,dob,gender,occupation_code,img_url,sign_img_url,marital_status,child_num,home_type_code,cus_since,cus_doc_code,credit_limit,kin_type_code,created_by,modified_by,deleted_by,created_date,modified_date,deleted_date,rel_off_code")]
+        public async Task<ActionResult> CreateCustomer([Bind(Include = "id,home_type_code,age_cat_type_code,cus_type_code,title,firstname,lastname,middlename,dob,gender,occupation_code,img_url,sign_img_url,marital_status,child_num,cus_since,cus_doc_code,credit_limit,kin_type_code,created_by,modified_by,deleted_by,created_date,modified_date,deleted_date,rel_off_code,bran_code")]
                                                       app_cus_main app_cus_main
                                                     , app_cus_other_info app_cus_other_info
                                                     , app_cus_contact app_cus_contact
                                                     , app_kin_details app_kin_details
+                                                    
                                                      )
         {
             ViewBag.alert = "";
@@ -119,6 +113,7 @@ namespace app.com.Controllers
                 app_cus_main.app_cus_contact = app_cus_contact;
                 app_cus_main.app_kin_details = app_kin_details;
                 app_cus_main.app_cus_other_info = app_cus_other_info;
+              //  app_cus_main.app_cus_contact.app_countries = app_countries ;
                 app_cus_main.cus_code = _repository.GetCustomerCode(app_cus_main.id);
                 db.app_cus_main.Add(app_cus_main);
                 db.app_cus_contact.Add(app_cus_contact);
@@ -132,8 +127,8 @@ namespace app.com.Controllers
 
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             ViewBag.countries = new SelectList(db.app_countries, "id", "name");
-            ViewBag.home_type_code = new SelectList(db.app_home_type, "home_code", "type_name", app_cus_main.home_type_code);
-            ViewBag.gender = new SelectList(db.app_gender, "gender_code", "sex", app_cus_main.gender);
+            ViewBag.home_type_code = new SelectList(db.app_home_type, "id", "type_name", app_cus_main.home_type_code);
+            ViewBag.gender = new SelectList(db.app_gender, "id", "sex", app_cus_main.gender);
             ViewBag.age_cat_type_code = new SelectList(db.app_age_cate, "id", "name_of_cat", app_cus_main.age_cat_type_code);
             ViewBag.bran_code = new SelectList(db.app_branch, "id", "branch_name", app_cus_main.bran_code);
             ViewBag.contact_code = new SelectList(db.app_cus_contact, "id", "tele_number", app_cus_main.contact_code);
@@ -143,7 +138,7 @@ namespace app.com.Controllers
             ViewBag.kin_details_code = new SelectList(db.app_kin_details, "id", "kin_details_code", app_cus_main.kin_details_code);
             ViewBag.occupation_code = new SelectList(db.app_occupation, "id", "name", app_cus_main.occupation_code);
             ViewBag.rel_off_code = new SelectList(db.app_rel_office, "id", "full_name", app_cus_main.rel_off_code);
-            //ViewBag.countries = new SelectList(db.app_countries, "id", "name", app_cus_main.app_cus_contact.contact_code);
+            ViewBag.home_type_code = new SelectList(db.app_home_type, "id", "type_name");
 
             return View(app_cus_main);
         }
@@ -151,17 +146,30 @@ namespace app.com.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditCustomer(app_cus_main app_cus_main)
+        public ActionResult EditCustomer([Bind(Include = "id,home_type_code,age_cat_type_code,cus_type_code,title,firstname,lastname,middlename,dob,gender,occupation_code,img_url,sign_img_url,marital_status,child_num,cus_since,cus_doc_code,credit_limit,kin_type_code,created_by,modified_by,deleted_by,created_date,modified_date,deleted_date,rel_off_code,bran_code")]
+                                                      app_cus_main app_cus_main
+                                                    , app_cus_other_info app_cus_other_info
+                                                    , app_cus_contact app_cus_contact
+                                                    , app_kin_details app_kin_details
+            )
+
         {
             if (ModelState.IsValid)
             //  return View(app_cus_main);
-            { 
-
-            app_cus_main.modified_by = _repository.GetLoginUser();
-            app_cus_main.modified_date = _repository.GetCurrentDateTime();
-            db.Entry(app_cus_main).State = EntityState.Modified;
-            db.SaveChanges();
-            TempData["Message"] = "Data Saved !!!.";
+            {
+                app_cus_main.modified_by = _repository.GetLoginUser();
+                app_cus_main.modified_date = _repository.GetCurrentDateTime();
+                
+                app_cus_main.app_cus_contact = app_cus_contact;
+                app_cus_main.app_kin_details = app_kin_details;
+                app_cus_main.app_cus_other_info = app_cus_other_info;
+                
+                app_cus_main.cus_code = _repository.GetCustomerCode(app_cus_main.id);
+                db.app_cus_main.Add(app_cus_main);
+         
+                db.Entry(app_cus_main).State = EntityState.Modified;
+                db.SaveChanges();
+                ViewBag.alert = "saved";
                 return RedirectToAction("Index");
             }
             ViewBag.contact_code = new SelectList(db.app_cus_contact, "id", "email", app_cus_main.contact_code);

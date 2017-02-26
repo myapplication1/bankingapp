@@ -79,7 +79,7 @@ namespace app.com.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "id,contact_code,tele_number,fax,email,address1,address2,city,state,zip,brief_location,gps_cordinates")] app_cus_contact app_cus_contact)
+        public async Task<ActionResult> Edit([Bind(Include = "id,country_code,contact_code,tele_number,fax,email,address1,address2,city,state,zip,brief_location,gps_cordinates")] app_cus_contact app_cus_contact)
         {
             if (ModelState.IsValid)
             {
