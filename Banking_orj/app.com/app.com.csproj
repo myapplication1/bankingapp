@@ -919,6 +919,8 @@
     <Content Include="Views\app_cus_main\Details.cshtml" />
     <Content Include="Views\app_cus_main\Edit.cshtml" />
     <Content Include="Views\app_cus_main\Index.cshtml" />
+    <Content Include="Views\cus\DelCustomer.cshtml" />
+    <Content Include="Views\cus\DetailsCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

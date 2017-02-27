@@ -74,7 +74,7 @@
                             <tr>
                                 <td>
     @*@Html.ActionLink(null, "Details", new { id = item_.cus_code } ,htmlAttributes: new {@class="typcn typcn-media-eject-outline"})*@
-    <a href=@Url.Action("Details", "cus", new {id = item_.id  })><i class="typcn typcn-media-eject-outline"  title="View Customer"></i></a>
+    <a href=@Url.Action("DetailsCustomer", "cus", new {id = item_.id  })><i class="typcn typcn-media-eject-outline"  title="View Customer"></i></a>
 
 </td>
 <td>
@@ -84,7 +84,7 @@
 </td>
 <td>
    
-    <a href=@Url.Action("Delete", "cus", new {id = item_.id  } )><i class="typcn typcn-delete" title="Delete Customer"></i></a>
+    <a href=@Url.Action("DelCustomer", "cus", new {id = item_.id  } )><i class="typcn typcn-delete" title="Delete Customer"></i></a>
 
     @*@Html.ActionLink(null, "Delete", new { id = item_.cus_code }, htmlAttributes: new { @class = "typcn typcn-delete" })*@
 </td>

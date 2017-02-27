@@ -26,7 +26,7 @@ namespace app.com.Data
                            .Include("app_cus_contact")
                            .Include("app_cus_other_info")
                            .Include("app_kin_details")
-                           .Where(m => m.id == id).FirstOrDefault();
+                           .Where(m => m.id == id && m.status =="ini").FirstOrDefault();
         }
 
         public IEnumerable<app_cus_main> GetAllCustomers(int number)
@@ -37,8 +37,9 @@ namespace app.com.Data
                            .Include("app_cus_other_info")
                            .Include("app_cus_type")
                            .Include("app_rel_office")
-                           .Include("app_kin_details").ToList().Take(number);
-                           //.Where(m => m.id == id).FirstOrDefault();
+                           .Include("app_kin_details")
+                           .Where(m => m.status  == "ini").ToList().Take(number);
+
         }
 
         public IEnumerable<app_cus_main> Customers()
