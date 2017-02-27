@@ -107,10 +107,10 @@ namespace app.com.Data
      //   [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
         public string marital_status { get; set; }
 
-        [Range(0, 15, ErrorMessage = "Can only be between 0 .. 100")]
+        [Range(0, 15, ErrorMessage = "Children - an only be between 0 .. 100")]
         public Nullable<int> child_num { get; set; }
       
-        [Required(ErrorMessage = "Required")]
+        [Required(ErrorMessage = "Customer since - Required")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
 

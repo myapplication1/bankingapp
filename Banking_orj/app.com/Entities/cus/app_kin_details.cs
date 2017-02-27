@@ -16,7 +16,7 @@ namespace app.com.Data
         public string kin_details_code { get; set; }
 
        
-        [Required(ErrorMessage = "Required")]
+        [Required(ErrorMessage = "firstname Required")]
         [StringLength(30, MinimumLength = 1, ErrorMessage = "First name - Length between 1 to 30 Required")]
         public string firstname { get; set; }
     
@@ -26,7 +26,7 @@ namespace app.com.Data
         [StringLength(30, MinimumLength = 1, ErrorMessage = "Middle name - Length between 1 to 30 Required")]
         public string middle { get; set; }
 
-        [Required(ErrorMessage = "Required")]
+        [Required(ErrorMessage = "relationship Required")]
         [StringLength(30, MinimumLength = 1, ErrorMessage = "Relationship - Length between 1 to 30 Required")]
         public string relationship { get; set; }
 
