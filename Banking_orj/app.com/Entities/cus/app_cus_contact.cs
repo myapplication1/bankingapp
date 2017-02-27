@@ -15,7 +15,7 @@ namespace app.com.Data
 
         
         [StringLength(15, MinimumLength = 9, ErrorMessage = "phone - Length between 9 to 15 Required")]
-        [Required(ErrorMessage = "Your must provide a PhoneNumber")]
+        [Required(ErrorMessage = "You must provide a PhoneNumber")]
         [Display(Name = "Home Phone")]
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number -(xxx-xxx-xxxx)")]
@@ -23,7 +23,7 @@ namespace app.com.Data
 
 
         [StringLength(15, MinimumLength = 9, ErrorMessage = "fax - Lenght between 9 to 15 Required")]
-        [Required(ErrorMessage = "Your must provide a fax number")]
+        [Required(ErrorMessage = "You must provide a fax number")]
         [Display(Name = "Home fax")]
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number -(xxx-xxx-xxxx)")]

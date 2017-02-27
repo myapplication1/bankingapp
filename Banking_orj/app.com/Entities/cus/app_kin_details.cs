@@ -33,7 +33,7 @@ namespace app.com.Data
        
 
         [StringLength(15, MinimumLength = 9, ErrorMessage = "Maximun Length 15")]
-        [Required(ErrorMessage = "Your must provide a PhoneNumber")]
+        [Required(ErrorMessage = "You must provide a PhoneNumber")]
         [Display(Name = "Home Phone")]
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number -(777-777-7777)")]
