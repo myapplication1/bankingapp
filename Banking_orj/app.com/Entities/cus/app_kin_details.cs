@@ -17,17 +17,17 @@ namespace app.com.Data
 
        
         [Required(ErrorMessage = "Required")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "First name - Length between 1 to 30 Required")]
         public string firstname { get; set; }
     
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Last name - Length between 1 to 30 Required")]
         public string lastname { get; set; }
-        [Required(ErrorMessage = "Required")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        //[Required(ErrorMessage = "Required")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Middle name - Length between 1 to 30 Required")]
         public string middle { get; set; }
 
         [Required(ErrorMessage = "Required")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Relationship - Length between 1 to 30 Required")]
         public string relationship { get; set; }
 
        
@@ -43,23 +43,23 @@ namespace app.com.Data
         public string email { get; set; }
 
        
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Address - Length between 1 to 30 Required")]
         public string address1 { get; set; }
 
      
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Address - Length between 1 to 30 Required")]
         public string address2 { get; set; }
 
         
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Zip - Length between 1 to 30 Required")]
         public string zip { get; set; }
 
     
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "City -Length between 1 to 30 Required")]
         public string city { get; set; }
 
     
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "State - Length between 1 to 30 Required")]
         public string state { get; set; }
         public string full_name
         {

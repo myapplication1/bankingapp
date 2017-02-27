@@ -69,18 +69,20 @@ namespace app.com.Data
 
         public string title { get; set; }
 
-        [Required(ErrorMessage = "Required")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        [Required(ErrorMessage = "First Name Required")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "first name Between 1 to Length 30 Require")]
         public string firstname { get; set; }
 
         //[Required(ErrorMessage = "Required")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "last name - Between 1 to Length 30 Require")]
+
         public string lastname { get; set; }
 
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Middle name - Between 1 to Length 30 Require")]
+
         public string middlename { get; set; }
 
-        [Required(ErrorMessage = "Required")]
+        [Required(ErrorMessage = "Date of Birth Required")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<System.DateTime> dob { get; set; }
@@ -89,10 +91,10 @@ namespace app.com.Data
         //[StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public Nullable<int> age_cat_type_code { get; set; }
 
-        [Required(ErrorMessage = "Required")]
+        [Required(ErrorMessage = "Gender Required")]
         public Nullable<int> gender { get; set; }
 
-        [Required(ErrorMessage = "Required")]
+        [Required(ErrorMessage = "Occupation Required")]
         public Nullable<int> occupation_code { get; set; }
 
        // [Required(ErrorMessage = "Required")]
@@ -119,7 +121,7 @@ namespace app.com.Data
         public Nullable<int> contact_code { get; set; }
         public Nullable<int> cus_doc_code { get; set; }
         public Nullable<int> home_type_code { get; set; }
-        [Range(1, (double)decimal.MaxValue, ErrorMessage = "value should be between{1} and {2}.")]
+        [Range(1, (double)decimal.MaxValue, ErrorMessage = "credit limit - value should be between{1} and {2}.")]
         public Nullable<decimal> credit_limit { get; set; }
         //[Required]
         //[DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
