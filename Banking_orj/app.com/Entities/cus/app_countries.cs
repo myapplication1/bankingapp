@@ -14,6 +14,6 @@ namespace app.com.Data
 
         
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<app_cus_contact> app_cus_contact { get; set; }
+        public virtual ICollection<app_cus_main> app_cus_main { get; set; }
     }
 }

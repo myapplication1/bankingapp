@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using app.com.Validators;
 
 namespace app.com.Data
 {
@@ -65,26 +66,28 @@ namespace app.com.Data
         //[StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public int bran_code { get; set; }
 
+        [Required(ErrorMessage = "Relation Office Required")]
         public Nullable<int> rel_off_code { get; set; }
 
         public string title { get; set; }
 
         [Required(ErrorMessage = "First Name Required")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "first name Between 1 to Length 30 Require")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "first name Between 1 to Length 50 Require")]
         public string firstname { get; set; }
-
+        [Required(ErrorMessage = "Last Name Required")]
         //[Required(ErrorMessage = "Required")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "last name - Between 1 to Length 30 Require")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "last name - Between 1 to Length 50 Require")]
 
         public string lastname { get; set; }
 
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Middle name - Between 1 to Length 30 Require")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "Middle name - Between 1 to Length 50 Require")]
 
         public string middlename { get; set; }
 
         [Required(ErrorMessage = "Date of Birth Required")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [AgeRange(18, 120, ErrorMessage = "Date of birth - Your age must be between {1}-{2}")]
         public Nullable<System.DateTime> dob { get; set; }
 
         //[Required(ErrorMessage = "Required")]
@@ -94,7 +97,7 @@ namespace app.com.Data
         [Required(ErrorMessage = "Gender Required")]
         public Nullable<int> gender { get; set; }
 
-        [Required(ErrorMessage = "Occupation Required")]
+        //[Required(ErrorMessage = "Occupation Required")]
         public Nullable<int> occupation_code { get; set; }
 
        // [Required(ErrorMessage = "Required")]
@@ -107,7 +110,7 @@ namespace app.com.Data
      //   [StringLength(30, MinimumLength = 1, ErrorMessage = "Maximun Length 30")]
         public string marital_status { get; set; }
 
-        [Range(0, 15, ErrorMessage = "Children - an only be between 0 .. 100")]
+        [Range(0, 15, ErrorMessage = "Children - expected numbers between 0 .. 100")]
         public Nullable<int> child_num { get; set; }
       
         [Required(ErrorMessage = "Customer since - Required")]
@@ -140,6 +143,15 @@ namespace app.com.Data
                 return firstname + " " + lastname;
             }
         }
+
+        [Display(Name = "Citizenship required")]
+        public int citizenship { get; set; }
+
+
+
+        [ForeignKey("citizenship")]
+        [InverseProperty("app_cus_main")]
+        public virtual app_countries app_countries { get; set; }
 
 
 

@@ -120,7 +120,7 @@
 
                                                                 @*full name textbox*@
                                                                 <div class="form-group">
-                                                                    <label class="col-lg-4 control-label">Full name</label>
+                                                                    <label class="col-lg-4 control-label">Full name<sup>*</sup></label>
                                                                    
                                                                     <div class="col-lg-3">
                                                                         @Html.EditorFor(model => model.firstname, new { htmlAttributes = new { @class = "form-control" } })
@@ -143,7 +143,7 @@
 
                                                                 @*---------------customer type name textbox*@
                                                                  <div class="form-group">
-                                                                    <label class="col-lg-4 control-label">Customer Type</label>
+                                                                    <label class="col-lg-4 control-label">Customer Type<sup>*</sup></label>
                                                                     <div class="col-lg-8">
 
                                                                       @Html.DropDownList("cus_type_code", null,string.Empty , htmlAttributes: new { @class = "form-control" , data_placeholder = "Please select a product" })
@@ -157,7 +157,7 @@
 
                                                                 @*---------------customer gender textbox*@
                                                                 <div class="form-group">
-                                                                    <label class="col-lg-4 control-label">Gender</label>
+                                                                    <label class="col-lg-4 control-label">Gender<sup>*</sup></label>
                                                                     <div class="col-lg-8">
                                                                        @Html.DropDownList("gender", null, string.Empty,htmlAttributes: new { @class = "form-control" })
                                                                        @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
@@ -182,7 +182,7 @@
 
                                                                 @*------------date of birth textbox*@
                                                                 <div class="form-group">
-                                                                    <label class="col-lg-4 control-label">Date of Birth</label>
+                                                                    <label class="col-lg-4 control-label">Date of Birth<sup>*</sup></label>
                                                                     <div class="col-lg-8">
 
                                                                         @Html.EditorFor(model => model.dob, new { htmlAttributes = new { @class = "form-control" } })
@@ -282,7 +282,7 @@
                                                             </div>
                                                             @*----home type ---- iamge*@
                                                             <div class="form-group">
-                                                                <label class="col-lg-4 control-label">Home Type<sup>*</sup></label>
+                                                                <label class="col-lg-4 control-label">Home Type</label>
                                                                 <div class="col-lg-8">
                                                                     @Html.DropDownList("home_type_code", null,string.Empty , htmlAttributes: new { @class = "form-control" })
                                                                     @Html.ValidationMessageFor(model => model.home_type_code, "", new { @class = "text-danger" })
@@ -318,7 +318,7 @@
                                                             <hr class="wide" />
                                                             @*----branch--------------- limite*@
                                                               <div class="form-group">
-                                                                <label class="col-lg-4 control-label">Branch</label>
+                                                                <label class="col-lg-4 control-label">Branch<sup>*</sup></label>
                                                                 <div class="col-lg-6">
                                                                     @Html.DropDownList("bran_code", null,string.Empty , htmlAttributes: new { @class = "form-control" })
                                                                     @Html.ValidationMessageFor(model => model.bran_code   , "", new { @class = "text-danger" })
@@ -352,12 +352,24 @@
                                                         <p>
                                                             @*contact tab details*@
                                                             <div class="form-group">
-                                                                <label class="col-lg-4 control-label">Phone</label>
+                                                                <label class="col-lg-4 control-label">Phone<sup>*</sup></label>
                                                                 @*contact telle phone details*@
                                                                 <div class="col-lg-6">
 
                                                                     @Html.EditorFor(model => model.app_cus_contact.tele_number, new { htmlAttributes = new { @class = "form-control" } })
                                                                     @Html.ValidationMessageFor(model => model.app_cus_contact.tele_number, "", new { @class = "text-danger" })
+
+                                                                </div>
+
+                                                            </div>
+                                                            @*contact tab details*@
+                                                            <div class="form-group">
+                                                                <label class="col-lg-4 control-label">Phone 2</label>
+                                                                @*contact telle phone details*@
+                                                                <div class="col-lg-6">
+
+                                                                    @Html.EditorFor(model => model.app_cus_contact.tele_number2, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @Html.ValidationMessageFor(model => model.app_cus_contact.tele_number2 , "", new { @class = "text-danger" })
 
                                                                 </div>
 
@@ -395,7 +407,7 @@
                                                     <div class="row">
                                                     <div class="contact-info">
                                                         <div class="form-group">
-                                                            <label class="col-lg-4 control-label">Address</label>
+                                                            <label class="col-lg-4 control-label">Address<sup>*</sup></label>
                                                             @*contact address1 details*@
                                                             <div class="col-lg-6">
 
@@ -429,12 +441,12 @@
 
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-lg-4 control-label">Country</label>
+                                                            <label class="col-lg-4 control-label">Citizenship<sup>*</sup></label>
                                                             @*contact country details*@
                                                             <div class="col-lg-6">
 
-                                                                @Html.DropDownList("countries", null, htmlAttributes: new { @class = "form-control" })
-                                                                @Html.ValidationMessageFor(model => model.app_cus_contact.country_code, "", new { @class = "text-danger" })
+                                                                @Html.DropDownList("citizenship", null, htmlAttributes: new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.citizenship , "", new { @class = "text-danger" })
 
                                                             </div>
 
@@ -465,7 +477,7 @@
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label class="col-lg-4 control-label">Verification ID</label>
+                                                            <label class="col-lg-4 control-label">Verification ID<sup>*</sup></label>
                                                             @*contact Verification details*@
                                                             <div class="col-lg-6">
 
@@ -502,7 +514,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-lg-4 control-label">Security Group</label>
+                                                            <label class="col-lg-4 control-label">Security Group<sup>*</sup></label>
                                                             @*contact tax details*@
                                                             <div class="col-lg-6">
 
@@ -513,7 +525,18 @@
 
                                                             </div>
                                                         </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-4 control-label">Tin Number</label>
+                                                            @*contact tax details*@
+                                                            <div class="col-lg-6">
 
+
+                                                                @Html.EditorFor(model => model.app_cus_other_info.tin_number , new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.app_cus_other_info.tin_number, "", new { @class = "text-danger" })
+
+
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                    
 
@@ -555,7 +578,7 @@
                                                 Next of Kin Info
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-lg-4 control-label">Full name</label>
+                                                <label class="col-lg-4 control-label">Full name <sup>*</sup></label>
 
                                                 <div class="col-lg-3">
                                                     @Html.EditorFor(model => model.app_kin_details.firstname, new { htmlAttributes = new { @class = "form-control" } })
@@ -578,7 +601,7 @@
 
                                             @*----signature ---- iamge*@
                                             <div class="form-group">
-                                                <label class="col-lg-4 control-label">Relationship <sup>*</sup></label>
+                                                <label class="col-lg-4 control-label">Relationship<sup>*</sup> </label>
                                                 <div class="col-lg-8">
                                                     @Html.EditorFor(model => model.app_kin_details.relationship, new { htmlAttributes = new { @class = "form-control" } })
                                                     @Html.ValidationMessageFor(model => model.app_kin_details.relationship, "", new { @class = "text-danger" })
@@ -604,7 +627,7 @@
                                         </div>
                                         @*----home type ---- iamge*@
                                         <div class="form-group">
-                                            <label class="col-lg-4 control-label">Email<sup>*</sup></label>
+                                            <label class="col-lg-4 control-label">Email</label>
                                             <div class="col-lg-8">
                                                 @Html.EditorFor(model => model.app_kin_details.email, new { htmlAttributes = new { @class = "form-control" } })
                                                 @Html.ValidationMessageFor(model => model.app_kin_details.email, "", new { @class = "text-danger" })

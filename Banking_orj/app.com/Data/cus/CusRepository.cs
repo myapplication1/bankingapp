@@ -22,9 +22,11 @@ namespace app.com.Data
         public app_cus_main  GetCustomers(int? id)
         {
          
-            return _context.app_cus_main 
-                           .Include("app_cus_contact")
+            return _context.app_cus_main
+                          .Include("app_cus_contact")
                            .Include("app_cus_other_info")
+                           .Include("app_cus_type")
+                           .Include("app_rel_office")
                            .Include("app_kin_details")
                            .Where(m => m.id == id && m.status =="ini").FirstOrDefault();
         }
@@ -46,8 +48,10 @@ namespace app.com.Data
         {
 
             return _context.app_cus_main
-                           .Include("app_cus_contact")
+                        .Include("app_cus_contact")
                            .Include("app_cus_other_info")
+                           .Include("app_cus_type")
+                           .Include("app_rel_office")
                            .Include("app_kin_details").ToList();
             //.Where(m => m.id == id).FirstOrDefault();
         }

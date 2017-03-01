@@ -22,7 +22,8 @@ namespace app.com.Validators
     {
       if (!(value is DateTime))
       {
-        throw new ValidationException("AgeRange is only valid for DateTime properties.");
+           return new ValidationResult(this.FormatErrorMessage("Date cannot be null"));
+              
       }
 
       var birthdate = (DateTime)value;

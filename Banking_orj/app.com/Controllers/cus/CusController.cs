@@ -208,7 +208,7 @@ namespace app.com.Controllers
             ViewBag.alert = "";
             ViewBag.gender = new SelectList(db.app_gender, "id", "sex");
             ViewBag.home_type_code = new SelectList(db.app_home_type, "id", "type_name");
-            ViewBag.countries = new SelectList(db.app_countries, "id", "name");
+            ViewBag.citizenship = new SelectList(db.app_countries, "id", "name");
             //ViewBag.kin_type = new SelectList(db.app_kin_type, "id", "kin_type_name");
 
             ViewBag.age_cat_type_code = new SelectList(db.app_age_cate, "id", "name_of_cat");
@@ -227,7 +227,7 @@ namespace app.com.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateCustomer([Bind(Include = "id,home_type_code,age_cat_type_code,cus_type_code,title,firstname,lastname,middlename,dob,gender,occupation_code,img_url,sign_img_url,marital_status,child_num,cus_since,cus_doc_code,credit_limit,kin_type_code,created_by,modified_by,deleted_by,created_date,modified_date,deleted_date,rel_off_code,bran_code")]
+        public async Task<ActionResult> CreateCustomer([Bind(Include = "id,citizenship,home_type_code,age_cat_type_code,cus_type_code,title,firstname,lastname,middlename,dob,gender,occupation_code,img_url,sign_img_url,marital_status,child_num,cus_since,cus_doc_code,credit_limit,kin_type_code,created_by,modified_by,deleted_by,created_date,modified_date,deleted_date,rel_off_code,bran_code")]
                                                       app_cus_main app_cus_main
                                                     , app_cus_other_info app_cus_other_info
                                                     , app_cus_contact app_cus_contact
@@ -238,16 +238,17 @@ namespace app.com.Controllers
             ViewBag.alert = "";
             if (ModelState.IsValid)
             {
-               
+
+                app_cus_main.created_by  = _repository.GetLoginUser();
+                app_cus_main.created_date = _repository.GetCurrentDateTime();
+                app_cus_main.img_url = "/image/photo";
+                app_cus_main.sign_img_url = "/image/signature";
                 app_cus_main.app_cus_contact = app_cus_contact;
                 app_cus_main.app_kin_details = app_kin_details;
                 app_cus_main.app_cus_other_info = app_cus_other_info;
-              //  app_cus_main.app_cus_contact.app_countries = app_countries ;
+
                 app_cus_main.cus_code = _repository.GetCustomerCode(app_cus_main.id);
-                app_cus_main.status = "ini";
                 db.app_cus_main.Add(app_cus_main);
-                db.app_cus_contact.Add(app_cus_contact);
-                db.app_cus_other_info.Add(app_cus_other_info);
                 await db.SaveChangesAsync();
                 ViewBag.alert = "saved";
                 return RedirectToAction("Index");
@@ -256,7 +257,7 @@ namespace app.com.Controllers
             { ViewBag.alert = "error"; }
 
             var errors = ModelState.Values.SelectMany(v => v.Errors);
-            ViewBag.countries = new SelectList(db.app_countries, "id", "name");
+            ViewBag.citizenship = new SelectList(db.app_countries, "id", "name");
             ViewBag.home_type_code = new SelectList(db.app_home_type, "id", "type_name", app_cus_main.home_type_code);
             ViewBag.gender = new SelectList(db.app_gender, "id", "sex", app_cus_main.gender);
             ViewBag.age_cat_type_code = new SelectList(db.app_age_cate, "id", "name_of_cat", app_cus_main.age_cat_type_code);
@@ -294,7 +295,7 @@ namespace app.com.Controllers
                 app_cus_main.app_kin_details = app_kin_details;
                 app_cus_main.app_cus_other_info = app_cus_other_info;
                 
-                app_cus_main.cus_code = _repository.GetCustomerCode(app_cus_main.id);
+                //app_cus_main.cus_code = _repository.GetCustomerCode(app_cus_main.id);
                 db.app_cus_main.Add(app_cus_main);
          
                 db.Entry(app_cus_main).State = EntityState.Modified;

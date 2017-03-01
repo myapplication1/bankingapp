@@ -17,10 +17,11 @@ namespace app.com.Data
 
        
         [Required(ErrorMessage = "firstname Required")]
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "First name - Length between 1 to 30 Required")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "First name - Length between 1 to 50 Required")]
         public string firstname { get; set; }
-    
-        [StringLength(30, MinimumLength = 1, ErrorMessage = "Last name - Length between 1 to 30 Required")]
+
+        [Required(ErrorMessage = "last name Required")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "Last name - Length between 1 to 50 Required")]
         public string lastname { get; set; }
         //[Required(ErrorMessage = "Required")]
         [StringLength(30, MinimumLength = 1, ErrorMessage = "Middle name - Length between 1 to 30 Required")]
@@ -32,11 +33,11 @@ namespace app.com.Data
 
        
 
-        [StringLength(15, MinimumLength = 9, ErrorMessage = "Maximun Length 15")]
+        [StringLength(20, MinimumLength = 9, ErrorMessage = "Maximun Length 15")]
         [Required(ErrorMessage = "You must provide a PhoneNumber")]
         [Display(Name = "Home Phone")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number -(777-777-7777)")]
+        //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number -(777-777-7777)")]
         public string tele_num_rel { get; set; }
 
         [DataType(DataType.EmailAddress, ErrorMessage = "Invalid email")]

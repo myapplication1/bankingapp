@@ -14,24 +14,27 @@ namespace app.com.Data
 
 
         
-        [StringLength(15, MinimumLength = 9, ErrorMessage = "phone - Length between 9 to 15 Required")]
+        [StringLength(15, MinimumLength = 9, ErrorMessage = "phone - Length between 9 to 20 Required")]
         [Required(ErrorMessage = "You must provide a PhoneNumber")]
         [Display(Name = "Home Phone")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number -(xxx-xxx-xxxx)")]
+        //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number -(xxx-xxx-xxxx)")]
         public string tele_number { get; set; }
 
+        public string tele_number2 { get; set; }
 
-        [StringLength(15, MinimumLength = 9, ErrorMessage = "fax - Lenght between 9 to 15 Required")]
-        [Required(ErrorMessage = "You must provide a fax number")]
+        [StringLength(20, MinimumLength = 9, ErrorMessage = "fax - Lenght between 9 to 20 Required")]
+        //[Required(ErrorMessage = "You must provide a fax number")]
         [Display(Name = "Home fax")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number -(xxx-xxx-xxxx)")]
+        //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number -(xxx-xxx-xxxx)")]
 
         public string fax { get; set; }
 
         [DataType(DataType.EmailAddress, ErrorMessage = "Invalid email")]
         public string email { get; set; }
+
+        [Required(ErrorMessage = "Address required")]
 
         [StringLength(30, MinimumLength = 1, ErrorMessage = "address - Length between 1 to 30 Required")]
         public string address1 { get; set; }
@@ -50,21 +53,19 @@ namespace app.com.Data
 
         public string zip { get; set; }
 
-        [StringLength(30, MinimumLength = 5, ErrorMessage = "brief location - Length between 5 to 30 Required")]
+        [StringLength(400, MinimumLength = 5, ErrorMessage = "brief location - Length between 5 to 30 Required")]
 
-        public string brief_location { get; set; }
+      public string brief_location { get; set; }
 
-        [StringLength(30, MinimumLength = 5, ErrorMessage = "gps cordinates - Length between 5 to 30 Required")]
+        [StringLength(30, MinimumLength = 5, ErrorMessage = "gps cordinates - Length between 5 to 400 Required")]
 
         public string gps_cordinates { get; set; }
-        public int? country_code { get; set; }
+
+        //[Display(Name = "Citizenship required")]
+        public int country_code { get; set; }
 
 
 
-
-        [ForeignKey("country_code")]
-        [InverseProperty("app_cus_contact")]
-        public virtual app_countries app_countries { get; set; }
 
         public virtual ICollection<app_cus_main> app_cus_main { get; set; }
     }
