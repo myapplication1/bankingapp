@@ -577,6 +577,8 @@
     <Content Include="Content\theme\portfolio-big.html" />
     <Content Include="Content\theme\portfolio.html" />
     <Content Include="Content\theme\service.html" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -842,6 +844,8 @@
     <Content Include="assets\js\tagsinput\bootstrap-tagsinput.min.js.map" />
     <Content Include="assets\js\toastr\toastr.min.js.map" />
     <Content Include="assets\js\validation\bootstrapValidator.min.js.map" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\okk.pubxml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Images\awkwardguy.jpg" />
@@ -875,6 +879,8 @@
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

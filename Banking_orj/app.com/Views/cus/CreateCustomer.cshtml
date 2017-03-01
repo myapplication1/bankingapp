@@ -11,9 +11,11 @@
         ×
     </button>
     <i class="fa-fw fa fa-times"></i>
-    <strong>Error!</strong> @Html.ValidationSummary(false).
-
+    <strong>Info !</strong> @Html.ValidationSummary(false).
+ 
+    
 </div>
+
 }
 @if (ViewBag.alert == "saved")
 {
@@ -22,8 +24,10 @@
             ×
         </button>
         <i class="fa-fw fa fa-times"></i>
-        <strong>Error!</strong> Data Saved.
+        <strong>Info !</strong> Data Saved.
     </div>
+    
+
 }
 
 <form id="html5Form" method="post" class="form-horizontal" action="@Url.Action("CreateCustomer", "cus")">
@@ -65,11 +69,6 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tab" href="#other">
-                                        Other Details
-                                    </a>
-                                </li>
-                                <li>
                                     <a data-toggle="tab" href="#kin">
                                         Next of Kin Details
                                     </a>
@@ -77,6 +76,13 @@
                                 <li>
                                     <a data-toggle="tab" href="#doc">
                                         Document Details
+                                    </a>
+                                </li>
+                              
+
+                                <li>
+                                    <a data-toggle="tab" href="#other">
+                                        Sms Services
                                     </a>
                                 </li>
                                 <li>
@@ -386,6 +392,7 @@
                                                     <div class="profile-badge azure">
                                                         <i class="fa fa-map-marker azure"></i><span>Location</span>
                                                     </div>
+                                                    <div class="row">
                                                     <div class="contact-info">
                                                         <div class="form-group">
                                                             <label class="col-lg-4 control-label">Address</label>
@@ -443,14 +450,71 @@
                                                             </div>
 
                                                         </div>
+                                                     
 
+                                                        </div>
                                                     </div>
                                                 </div>
-
+                                               
                                             </div>
                                             <div class="col-md-6">
                                                 <div id="contact-map" class="animated flipInY">
+                                                    <div class="col-md-12">
+                                                        <div class="form-title">
+                                                            Other Info
+                                                        </div>
 
+                                                        <div class="form-group">
+                                                            <label class="col-lg-4 control-label">Verification ID</label>
+                                                            @*contact Verification details*@
+                                                            <div class="col-lg-6">
+
+
+                                                                @Html.EditorFor(model => model.app_cus_other_info.verification_id, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.app_cus_other_info.verification_id, "", new { @class = "text-danger" })
+
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-lg-4 control-label">SSN </label>
+                                                            @*contact ssn details*@
+                                                            <div class="col-lg-6">
+
+                                                                @Html.EditorFor(model => model.app_cus_other_info.ssn, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.app_cus_other_info.ssn, "", new { @class = "text-danger" })
+
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-lg-4 control-label">Tax Number</label>
+                                                            @*contact tax details*@
+                                                            <div class="col-lg-6">
+
+
+                                                                @Html.EditorFor(model => model.app_cus_other_info.tax_number, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.app_cus_other_info.tax_number, "", new { @class = "text-danger" })
+
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-4 control-label">Security Group</label>
+                                                            @*contact tax details*@
+                                                            <div class="col-lg-6">
+
+
+                                                                @Html.EditorFor(model => model.app_cus_other_info.security_group, new { htmlAttributes = new { @class = "form-control" } })
+                                                                @Html.ValidationMessageFor(model => model.app_cus_other_info.security_group, "", new { @class = "text-danger" })
+
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                    
 
                                                 </div>
@@ -464,62 +528,7 @@
                                    
                                     @*other contact details form*@
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-title">
-                                                Other Info
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="col-lg-4 control-label">Verification ID</label>
-                                                @*contact Verification details*@
-                                                <div class="col-lg-6">
-
-
-                                                    @Html.EditorFor(model => model.app_cus_other_info .verification_id , new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.app_cus_other_info.verification_id, "", new { @class = "text-danger" })
-
-
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="col-lg-4 control-label">SSN </label>
-                                                @*contact ssn details*@
-                                                <div class="col-lg-6">
-
-                                                    @Html.EditorFor(model => model.app_cus_other_info.ssn, new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.app_cus_other_info.ssn, "", new { @class = "text-danger" })
-
-
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="col-lg-4 control-label">Tax Number</label>
-                                                @*contact tax details*@
-                                                <div class="col-lg-6">
-
-
-                                                    @Html.EditorFor(model => model.app_cus_other_info.tax_number , new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.app_cus_other_info.tax_number, "", new { @class = "text-danger" })
-
-
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-lg-4 control-label">Security Group</label>
-                                                @*contact tax details*@
-                                                <div class="col-lg-6">
-
-
-                                                    @Html.EditorFor(model => model.app_cus_other_info.security_group , new { htmlAttributes = new { @class = "form-control" } })
-                                                    @Html.ValidationMessageFor(model => model.app_cus_other_info.security_group , "", new { @class = "text-danger" })
-
-
-                                                </div>
-                                            </div>
-
-                                        </div>
+                                        
                                         <div class="col-lg-6 col-sm-6 col-xs-12">
                                             <div class="widget  radius-bordered">
 
@@ -662,11 +671,17 @@
 
 @*end*@
 
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (@ViewBag.alert == "error") {
+          toastr.success('Added');
+       }
+        else{ }
+    });
+</script> 
 
 <script type="text/javascript">
     $('.datepicker').datepicker(); //Initialise any date pickers
 </script>
-
 
 
