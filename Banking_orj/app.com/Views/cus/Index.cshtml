@@ -10,6 +10,28 @@
 <div class="form-group">
     <div class="row">
         <div class="col-lg-offset-4 col-lg-8">
+
+            <div class="btn-group">
+                <a class="btn btn-palegreen " href="javascript:void(0);">Create Customer</a>
+                <a class="btn btn-palegreen  dropdown-toggle shiny" data-toggle="dropdown" href="javascript:void(0);"><i class="fa fa-angle-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="@Url.Action("CreateCustomer", "cus")">Individual</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="javascript:void(0);">Corporate</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="javascript:void(0);">Loan</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="javascript:void(0);">Other </a>
+                    </li>
+                </ul>
+            </div>
             <input name="btn_edit" id="btn_edit" class="btn btn-palegreen" value="Create Customer" onclick="@("window.location.href='" + @Url.Action("CreateCustomer", "cus") + "'");" />
            </div>
     </div>

@@ -242,6 +242,7 @@ namespace app.com.Controllers
                 app_cus_main.created_by  = _repository.GetLoginUser();
                 app_cus_main.created_date = _repository.GetCurrentDateTime();
                 app_cus_main.img_url = "/image/photo";
+                app_cus_main.status = "ini";
                 app_cus_main.sign_img_url = "/image/signature";
                 app_cus_main.app_cus_contact = app_cus_contact;
                 app_cus_main.app_kin_details = app_kin_details;
