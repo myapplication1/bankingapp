@@ -11,6 +11,7 @@ namespace app.com.Data
         [Key]
         public int id { get; set; }
         public int bran_code { get; set; }
+        [Required(ErrorMessage = "Name Required")]
         public string branch_name { get; set; }
         public Nullable<int> bran_type_code { get; set; }
         public string address1 { get; set; }

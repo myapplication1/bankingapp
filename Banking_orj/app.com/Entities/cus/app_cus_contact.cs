@@ -53,7 +53,7 @@ namespace app.com.Data
 
         public string zip { get; set; }
 
-        [StringLength(400, MinimumLength = 5, ErrorMessage = "brief location - Length between 5 to 30 Required")]
+      //  [StringLength(400, MinimumLength = 5, ErrorMessage = "brief location - Length between 5 to 30 Required")]
 
       public string brief_location { get; set; }
 

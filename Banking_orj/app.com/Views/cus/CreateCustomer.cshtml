@@ -117,6 +117,33 @@
                                                                     Basic Customer Info
                                                                 </div>
 
+                                                            <div class="form-group">
+                                                                <label class="col-lg-4 control-label">Title</label>
+                                                                <div class="col-lg-6">
+                                                                    @Html.DropDownList("title", new List<SelectListItem>{
+                                                                          new SelectListItem{ Text="Mr", Value="0"},
+                                                                          new SelectListItem{ Text="Mrs", Value="1"},
+                                                                          new SelectListItem{ Text="Miss", Value="2"},
+                                                                           new SelectListItem{ Text="Ms", Value="3"},
+                                                                           new SelectListItem{ Text="Esquire", Value="4"},
+                                                                           new SelectListItem{ Text="Sir", Value="5"},
+                                                                           new SelectListItem{ Text="Madam", Value="6"},
+                                                                           new SelectListItem{ Text="Dr", Value="7"},
+                                                                new SelectListItem{ Text="Rev", Value="8"},
+                                                                 new SelectListItem{ Text="Church", Value="9"},
+                                                                  new SelectListItem{ Text="Clinic", Value="10"},
+                                                                   new SelectListItem{ Text="Company", Value="11"},
+                                                                new SelectListItem{ Text="Group", Value="12"}
+                                                               
+                                                               
+                                                               
+                                                               },"")
+                                                                                                                                   
+                                                                                                                                                                                                 
+                                                                </div>
+                                                                @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+
+                                                            </div>
 
 
                                                                 @*full name textbox*@
@@ -169,28 +196,38 @@
 
                                                                 @*---------------customer age cate textbox*@
                                                                
-                                                                 <div class="form-group">
-                                                                    <label class="col-lg-4 control-label">Age Category</label>
-                                                                    <div class="col-lg-8">
-                                                               
-                                                                       @Html.DropDownList("age_cat_type_code", null,string.Empty ,  new { @class = "form-control" })
-                                                                       @Html.ValidationMessageFor(model => model.age_cat_type_code, "", new { @class = "text-danger" })
-                                                                        
-                                                                    </div>
-                                                                </div>
+                                                             
                                                                 @*------------end---customer age cate textbox*@
 
 
                                                                 @*------------date of birth textbox*@
-                                                                <div class="form-group">
-                                                                    <label class="col-lg-4 control-label">Date of Birth<sup>*</sup></label>
-                                                                    <div class="col-lg-8">
 
-                                                                        @Html.EditorFor(model => model.dob, new { htmlAttributes = new { @class = "form-control" } })
-                                                                        @Html.ValidationMessageFor(model => model.dob, "", new { @class = "text-danger" })
+                                                            <div class="form-group">
+                                                                <label class="col-lg-4 control-label">Date of Birth<sup>*</sup></label>
 
-                                                                    </div>
+                                                                <div class="col-lg-5">
+                                                                    @Html.EditorFor(model => model.dob, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @Html.ValidationMessageFor(model => model.dob, "", new { @class = "text-danger" })
+  </div>
+                                                              
+                                                                 <div class="col-lg-3">
+                                                                    @Html.DropDownList("age_cat_type_code", null, string.Empty, new { @class = "form-control", data_placeholder = "Age Category" })
+                                                                    @Html.ValidationMessageFor(model => model.age_cat_type_code, "", new { @class = "text-danger" })
+  </div>
+
+                                                            </div>
+
+
+                                                            <div class="form-group">
+                                                                <label class="col-lg-4 control-label">House Number</label>
+                                                                @*contact address2 details*@
+                                                                <div class="col-lg-8">
+                                                                    @Html.EditorFor(model => model.app_cus_contact.address2, new { htmlAttributes = new { @class = "form-control" } })
+                                                                    @Html.ValidationMessageFor(model => model.app_cus_contact.address2, "", new { @class = "text-danger" })
                                                                 </div>
+                                                            </div>
+
+
                                                                 @*-------end-----date of birth textbox*@
                                                               
                                                                   <div class="form-group">
@@ -291,7 +328,7 @@
                                                             </div>
 
                                                             @*----customer since---------------- limite*@
-                                                            <div class="form-group">
+                                                            @*<div class="form-group">
                                                                 <label class="col-lg-4 control-label">Customer Since</label>
                                                                 <div class="col-lg-6">
 
@@ -300,7 +337,7 @@
 
 
                                                                 </div>
-                                                            </div>
+                                                            </div>*@
 
                                                             @*----credit-limit--------------- limite*@
                                                             <div class="form-group">
@@ -418,17 +455,7 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label class="col-lg-4 control-label">Address Line 1 (Optional)</label>
-                                                            @*contact address2 details*@
-                                                            <div class="col-lg-6">
-
-                                                                @Html.EditorFor(model => model.app_cus_contact.address2, new { htmlAttributes = new { @class = "form-control" } })
-                                                                @Html.ValidationMessageFor(model => model.app_cus_contact.address2, "", new { @class = "text-danger" })
-
-                                                            </div>
-
-                                                        </div>
+                                                        
                                                         @*contact address2 details*@
                                                         <div class="form-group">
                                                             <label class="col-lg-4 control-label">State/Region</label>
@@ -514,18 +541,28 @@
 
                                                             </div>
                                                         </div>
+                                                       
+
                                                         <div class="form-group">
                                                             <label class="col-lg-4 control-label">Security Group<sup>*</sup></label>
-                                                            @*contact tax details*@
-                                                            <div class="col-lg-6">
+                                                            <div class="col-lg-8">
+                                                                @Html.DropDownList("security_code", new List<SelectListItem>{
+                                                                          new SelectListItem{ Text="Public", Value="0"},
+                                                                          new SelectListItem{ Text="Private", Value="1"}
+                                                                  
 
 
-                                                                @Html.EditorFor(model => model.app_cus_other_info.security_group, new { htmlAttributes = new { @class = "form-control" } })
-                                                                @Html.ValidationMessageFor(model => model.app_cus_other_info.security_group, "", new { @class = "text-danger" })
+
+                                                               }, "")
 
 
                                                             </div>
+                                                            @Html.ValidationMessageFor(model => model.app_cus_other_info.security_group, "", new { @class = "text-danger" })
+
+
                                                         </div>
+
+
                                                         <div class="form-group">
                                                             <label class="col-lg-4 control-label">Tin Number</label>
                                                             @*contact tax details*@

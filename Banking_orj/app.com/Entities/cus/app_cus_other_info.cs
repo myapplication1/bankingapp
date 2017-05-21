@@ -26,8 +26,8 @@ namespace app.com.Data
         [StringLength(30, MinimumLength = 1, ErrorMessage = "tax_number - Length between 1 to 30 Required")]
         public string tax_number { get; set; }
 
-        [Required(ErrorMessage = "Security Code Required")]
-        [StringLength(10, MinimumLength = 1, ErrorMessage = "Security group - Length between 1 to 10 Required")]
+        //[Required(ErrorMessage = "Security Code Required")]
+        //[StringLength(10, MinimumLength = 1, ErrorMessage = "Security group - Length between 1 to 10 Required")]
         public string security_group { get; set; }
         [StringLength(30, MinimumLength = 1, ErrorMessage = "tin number - Length between 1 to 20 Required")]
 

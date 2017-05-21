@@ -37,6 +37,8 @@ namespace app.com.Data
         public virtual DbSet<app_occupation> app_occupation { get; set; }
         public virtual DbSet<app_rel_office> app_rel_office { get; set; }
         public virtual DbSet<app_countries> app_countries { get; set; }
+        public virtual DbSet<app_imp_history> app_imp_history { get; set; }
+
 
         //    protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{

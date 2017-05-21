@@ -40,6 +40,7 @@ namespace app.com.Data
                            .Include("app_cus_type")
                            .Include("app_rel_office")
                            .Include("app_kin_details")
+                           .Include("app_gender")
                            .Where(m => m.status  == "ini").ToList().Take(number);
 
         }
@@ -63,6 +64,27 @@ namespace app.com.Data
 
             return "user_name";
         }
+
+        //check fo customer duplicates
+        public bool CheckCustomer(int gender, string firstname_ , string lastname , string surname , DateTime dob , string vId ,string tel)
+        {
+            var getReults = _context.app_cus_main
+                        .Include("app_cus_contact")
+                           .Include("app_cus_other_info")
+                           //.Include("app_cus_type")
+                           //.Include("app_rel_office")
+                           //.Include("app_kin_details")
+                           .Where(x=>x.gender == gender && x.firstname==firstname_ 
+                               && x.lastname==lastname && x.middlename==surname 
+                               && x.dob == dob && x.app_cus_other_info.verification_id==vId 
+                               && x.app_cus_contact.tele_number==tel ).FirstOrDefault();
+            if (getReults != null)
+                return true;
+            else
+                return false;
+            //return true;
+        }
+
 
         //get current datetime 
         public DateTime  GetCurrentDateTime()

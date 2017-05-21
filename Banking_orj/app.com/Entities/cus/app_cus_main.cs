@@ -88,14 +88,14 @@ namespace app.com.Data
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [AgeRange(18, 120, ErrorMessage = "Date of birth - Your age must be between {1}-{2}")]
-        public Nullable<System.DateTime> dob { get; set; }
+        public System.DateTime dob { get; set; }
 
         //[Required(ErrorMessage = "Required")]
         //[StringLength(30, MinimumLength = 3, ErrorMessage = "Maximun Length 30")]
         public Nullable<int> age_cat_type_code { get; set; }
 
         [Required(ErrorMessage = "Gender Required")]
-        public Nullable<int> gender { get; set; }
+        public int gender { get; set; }
 
         //[Required(ErrorMessage = "Occupation Required")]
         public Nullable<int> occupation_code { get; set; }
@@ -113,9 +113,10 @@ namespace app.com.Data
         [Range(0, 15, ErrorMessage = "Children - expected numbers between 0 .. 100")]
         public Nullable<int> child_num { get; set; }
       
-        [Required(ErrorMessage = "Customer since - Required")]
+        //[Required(ErrorMessage = "Customer since - Required")]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
 
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{yyyy/MM/dd}")]
         public Nullable<System.DateTime> cus_since { get; set; }
@@ -132,6 +133,8 @@ namespace app.com.Data
         public string modified_by { get; set; }
         public string deleted_by { get; set; }
         public string status { get; set; }
+         [Required(ErrorMessage = "Security Level - Required")]
+        public string security_code { get; set; }
 
         public Nullable<System.DateTime> created_date { get; set; }
         public Nullable<System.DateTime> modified_date { get; set; }
@@ -140,7 +143,7 @@ namespace app.com.Data
         {
             get
             {
-                return firstname + " " + lastname;
+                return firstname + " " + middlename +" " + lastname;
             }
         }
 
@@ -194,6 +197,10 @@ namespace app.com.Data
         [ForeignKey("rel_off_code")]
         [InverseProperty("app_cus_main")]
         public virtual app_rel_office app_rel_office { get; set; }
+
+        [ForeignKey("gender")]
+        [InverseProperty("app_cus_main")]
+        public virtual app_gender app_gender { get; set; }
 
 
     }

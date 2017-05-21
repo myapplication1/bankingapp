@@ -14,7 +14,12 @@ namespace app.com.Controllers
     public class app_cus_mainController : Controller
     {
         private _DbContext db = new _DbContext();
-
+        //private ICusRepository _repository;
+        public app_cus_mainController()
+        {
+         //   _repository = repository;
+        }
+ 
         // GET: app_cus_main
         public async Task<ActionResult> Index()
         {
@@ -49,9 +54,28 @@ namespace app.com.Controllers
             ViewBag.kin_details_code = new SelectList(db.app_kin_details, "id", "kin_details_code");
             ViewBag.occupation_code = new SelectList(db.app_occupation, "id", "occ_code");
             ViewBag.rel_off_code = new SelectList(db.app_rel_office, "id", "rel_code");
+            //ViewBag.title = new SelectList(db.app_rel_office, "id", "rel_code");
             return View();
         }
-
+        //check fo customer duplicates
+        public bool CheckCustomer(int gender, string firstname_, string lastname, string surname, DateTime dob, string vId, string tel)
+        {
+            var getReults = db.app_cus_main
+                        .Include("app_cus_contact")
+                           .Include("app_cus_other_info")
+                //.Include("app_cus_type")
+                //.Include("app_rel_office")
+                //.Include("app_kin_details")
+                           .Where(x => x.gender == gender && x.firstname == firstname_
+                               && x.lastname == lastname && x.middlename == surname
+                               && x.dob == dob && x.app_cus_other_info.verification_id == vId
+                               && x.app_cus_contact.tele_number == tel).FirstOrDefault();
+            if (getReults != null)
+                return true;
+            else
+                return false;
+            //return true;
+        }
         // POST: app_cus_main/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -59,6 +83,14 @@ namespace app.com.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "id,cus_type_code,bran_code,rel_off_code,title,firstname,lastname,middlename,dob,age_cat_type_code,gender,occupation_code,img_url,sign_img_url,marital_status,child_num,home_type_code,cus_since,cus_other_code,kin_details_code,contact_code,cus_doc_code,credit_limit,created_by,modified_by,deleted_by,created_date,modified_date,deleted_date")] app_cus_main app_cus_main)
         {
+
+            var results = CheckCustomer(app_cus_main.gender, app_cus_main.firstname ,app_cus_main.lastname , app_cus_main.middlename, app_cus_main.dob , app_cus_main.app_cus_other_info.verification_id ,app_cus_main.app_cus_contact.tele_number);
+
+            if (results)
+            {
+                ModelState.AddModelError(string.Empty,"Customer Already Exist");
+            }
+ 
             if (ModelState.IsValid)
             {
                 db.app_cus_main.Add(app_cus_main);

@@ -10,6 +10,7 @@ namespace app.com.App_Start
   using Microsoft.Web.Infrastructure.DynamicModuleHelper;
   using Ninject;
   using Ninject.Web.Common;
+   using  app.com.Data.impp;
   using WebApiContrib.IoC.Ninject;
 
   public static class NinjectWebCommon
@@ -68,6 +69,7 @@ namespace app.com.App_Start
       kernel.Bind<_DbContext>().ToSelf().InRequestScope();
       //kernel.Bind<I_Repository>().To<_Repository>();
       kernel.Bind<ICusRepository>().To<CusRepository >();
+      kernel.Bind<IImpRepository1>().To<ImpRepository>();
         }
   }
 }

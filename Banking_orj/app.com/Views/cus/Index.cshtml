@@ -7,149 +7,98 @@
 <div class="loading-container">
     <div class="loader"></div>
 </div>
-<div class="form-group">
-    <div class="row">
-        <div class="col-lg-offset-4 col-lg-8">
 
-            <div class="btn-group">
-                <a class="btn btn-palegreen " href="javascript:void(0);">Create Customer</a>
-                <a class="btn btn-palegreen  dropdown-toggle shiny" data-toggle="dropdown" href="javascript:void(0);"><i class="fa fa-angle-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="@Url.Action("CreateCustomer", "cus")">Individual</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="javascript:void(0);">Corporate</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="javascript:void(0);">Loan</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="javascript:void(0);">Other </a>
-                    </li>
-                </ul>
-            </div>
-            <input name="btn_edit" id="btn_edit" class="btn btn-palegreen" value="Create Customer" onclick="@("window.location.href='" + @Url.Action("CreateCustomer", "cus") + "'");" />
-           </div>
-    </div>
-</div>
-<div class="row">
-   
-    <div class="col-xs-12 col-md-12">
-        <div class="widget">
-            <div class="widget-header ">
-                <span class="widget-caption">Customers</span>
-                <div class="widget-buttons">
-                    <a href="#" data-toggle="maximize">
-                        <i class="fa fa-expand"></i>
-                    </a>
-                    <a href="#" data-toggle="collapse">
-                        <i class="fa fa-minus"></i>
-                    </a>
-                    <a href="#" data-toggle="dispose">
-                        <i class="fa fa-times"></i>
-                    </a>
+
+
+
+   @* new grid*@
+
+    <div class="row">
+
+        <div class="widget-body">
+            <div class="table-toolbar">
+                <a id="editabledatatable_new" href="@Url.Action("CreateCustomer", "cus")" class="btn btn-default">
+                    Add New Customer
+                </a>
+                <div class="btn-group pull-right">
+                    <a class="btn btn-default" href="javascript:void(0);">Tools</a>
+                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"><i class="fa fa-angle-down"></i></a>
+                    <ul class="dropdown-menu dropdown-default">
+                        <li>
+                            <a href="javascript:void(0);">Action</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Another action</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Something else here</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="javascript:void(0);">Separated link</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="widget-body">
-                <table class="table table-striped table-bordered table-hover" id="expandabledatatable">
-                    <thead>
-                        <tr>
-                          
-                            <th width="20px ">
+            <table class="table table-striped table-hover table-bordered" id="editabledatatable">
+                <thead>
+                    <tr role="row">
+                        <th>
+                            Full Name
+                        </th>
+                        <th>
+                            Gender
+                        </th>
+                        @*<th>
+                            Customer Type
+                        </th>*@
+                        <th>
+                            Telephone
+                        </th>
+                        <th>
+                            Verification ID
+                        </th>
+                        <th>
+                           Date of Birth
+                        </th>
+                        
+                        <th>E-mail</th>
+                        <th>Date Joined</th>
+                        <th></th>
+                    </tr>
+                </thead>
 
-                            </th>
-                            <th width="20px ">
+                <tbody>
+@foreach (var item_ in Model)
+{
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item_.full_name)</td>
+                        <td>@Html.DisplayFor(modelItem => item_.app_gender.sex)</td>
+                        <td class="center ">
+                            @Html.DisplayFor(modelItem => item_.app_cus_contact.tele_number)
+                    </td>
+                        <td>@Html.DisplayFor(modelItem => item_.app_cus_other_info.verification_id)</td>
+                        <td>@Html.DisplayFor(modelItem => item_.dob)</td>
+                        <td>@Html.DisplayFor(modelItem => item_.app_cus_contact.email)</td>
+                        <td>@Html.DisplayFor(modelItem => item_.cus_since)</td>
+                    
+                       
+                        <td width="130">
 
-                            </th>
-                            <th width="20px ">
+                            <a href="@Url.Action("EditCustomer", "cus", new { id = item_.id })" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i>Edit</a>
+                          @*  <a href="@Url.Action("DelCustomer", "cus",new { id=item_.id })" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i>Delete</a>*@
+                            <a href="@Url.Action("DetailsCustomer", "cus", new { id = item_.id })" class="btn btn-info btn-xs edit"><i class="fa fa-edit"></i>View</a>
 
-                            </th>
-                            <th>
-                                Full Name
-                            </th>
-                            <th>
-                                Customer Type
-                            </th>
-                            <th>
-                                Relations Office
-                            </th>
-                         
-                            <th>
-                                Customer Since
-                            </th>
-                            
-                            <th>
-                                Telephone
-                            </th>
-                            <th>
-                                Status
-                            </th>
-                        </tr>
-                    </thead>
-                    @foreach (var item_ in Model)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-    @*@Html.ActionLink(null, "Details", new { id = item_.cus_code } ,htmlAttributes: new {@class="typcn typcn-media-eject-outline"})*@
-    <a href=@Url.Action("DetailsCustomer", "cus", new {id = item_.id  })><i class="typcn typcn-media-eject-outline"  title="View Customer"></i></a>
+                        </td>
+                    </tr>
+}
+               
+                </tbody>
 
-</td>
-<td>
-    @*@Html.ActionLink(null, "Edit", new { id = item_.cus_code }, htmlAttributes: new { @class = "typcn typcn-camera" })*@
-    <a href=@Url.Action("EditCustomer", "cus", new {id = item_.id})><i class="typcn typcn-edit" title="Edit Customer"></i></a>
-
-</td>
-<td>
-   
-    <a href=@Url.Action("DelCustomer", "cus", new {id = item_.id  } )><i class="typcn typcn-delete" title="Delete Customer"></i></a>
-
-    @*@Html.ActionLink(null, "Delete", new { id = item_.cus_code }, htmlAttributes: new { @class = "typcn typcn-delete" })*@
-</td>
-<td class="center ">
-    @Html.DisplayFor(modelItem => item_.full_name)
-
-</td>
-<td class="center ">
-    @Html.DisplayFor(modelItem => item_.app_cus_type.type_name)
-
-</td>
-<td class="center ">
-    @Html.DisplayFor(modelItem => item_.app_rel_office.full_name)
-
-</td>
-                               
-<td class="center ">
-    @Html.DisplayFor(modelItem => item_.cus_since)
-
-</td>
-
-<td class="center ">
-    @Html.DisplayFor(modelItem => item_.app_cus_contact.tele_number)
-
-</td>
-                                <td class="center ">
-                                    @Html.DisplayFor(modelItem => item_.status)
-
-                                </td>
-                            </tr>
-
-
-
-
-
-                        </tbody>
-                    }
-                </table>
-            </div>
+            </table>
         </div>
-    </div>
-</div>
 
+    </div>
 
 
 
@@ -170,7 +119,10 @@
     <script src="~/assets/js/datatable/dataTables.bootstrap.min.js"></script>
     <script src="~/assets/js/datatable/datatables-init.js"></script>
     <script>
-
+        InitiateSimpleDataTable.init();
+        InitiateEditableDataTable.init();
+        InitiateExpandableDataTable.init();
+        InitiateSearchableDataTable.init();
         InitiateExpandableDataTable.init();
 
     </script>

@@ -46,21 +46,20 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\app.gh\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\..\..\Documents\Visual Studio 2015\Projects\app.gh\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject">
-      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Web.Common">
       <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
@@ -196,10 +195,16 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\app_cus_mainController.cs" />
+    <Compile Include="Controllers\bra\braController.cs" />
     <Compile Include="Controllers\cus\app_cus_contactController.cs" />
     <Compile Include="Controllers\cus\CusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\imp\ImpController.cs" />
     <Compile Include="Data\cus\CusRepository.cs" />
+    <Compile Include="Data\impp\IImpRepository1.cs" />
+    <Compile Include="Data\impp\ImpRepository.cs" />
+    <Compile Include="Entities\imp\app_file.cs" />
+    <Compile Include="Entities\imp\app_imp_history.cs" />
     <Compile Include="Entities\cus\app_countries.cs" />
     <Compile Include="Data\cus\ICusRepository.cs" />
     <Compile Include="Entities\cus\app_cus_doc.cs" />
@@ -220,6 +225,7 @@
     <Compile Include="Entities\cus\app_cus_contact.cs" />
     <Compile Include="Entities\cus\app_cus_main.cs" />
     <Compile Include="Data\cus\UtilRepository.cs" />
+    <Compile Include="Helpers\imp_.cs" />
     <Compile Include="Models\cus\EditCusModel.cs" />
     <Compile Include="Models\EditProfileViewModel.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
@@ -846,6 +852,7 @@
     <Content Include="assets\js\validation\bootstrapValidator.min.js.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="Doc\data_imp\template_cus_imp.xlsx" />
     <None Include="Properties\PublishProfiles\okk.pubxml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Images\awkwardguy.jpg" />
@@ -882,7 +889,9 @@
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -927,10 +936,18 @@
     <Content Include="Views\app_cus_main\Index.cshtml" />
     <Content Include="Views\cus\DelCustomer.cshtml" />
     <Content Include="Views\cus\DetailsCustomer.cshtml" />
+    <Content Include="Views\imp\Index.cshtml" />
+    <Content Include="Views\imp\CreateImport.cshtml" />
+    <Content Include="Views\bra\Create.cshtml" />
+    <Content Include="Views\bra\Delete.cshtml" />
+    <Content Include="Views\bra\Details.cshtml" />
+    <Content Include="Views\bra\Edit.cshtml" />
+    <Content Include="Views\bra\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Converters\" />
+    <Folder Include="Data\cus\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
