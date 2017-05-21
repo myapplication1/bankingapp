@@ -1,0 +1,119 @@
+﻿@model app.com.Data.app_file
+
+
+@{
+    ViewBag.Title = "Data Import";
+    ViewBag.Description = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (ViewBag.alert == "error") {
+<div class="alert alert-danger fade in">
+    <button class="close" data-dismiss="alert">
+        ×
+    </button>
+    <i class="fa-fw fa fa-times"></i>
+    <strong>Info !</strong> @Html.ValidationSummary(false).
+ 
+    
+</div>
+
+}
+@if (ViewBag.alert == "saved")
+{
+    <div class="alert alert-danger fade in">
+        <button class="close" data-dismiss="alert">
+            ×
+        </button>
+        <i class="fa-fw fa fa-times"></i>
+        <strong>Info !</strong> Data Saved.
+    </div>
+    
+
+}
+
+@*<form id="html5Form" method="post" class="form-horizontal" action="@Url.Action("CreateImport", "imp")">*@
+@using (Html.BeginForm("CreateImport", "imp", FormMethod.Post, new { @enctype = "multipart/form-data" ,@class="form-horizontal"}))
+{ 
+
+    <div class="form-group">
+        <div class="col-lg-offset-4 col-lg-8">
+
+         @*   <input name="btn_edit" id="btn_edit" class="btn btn-palegreen" type="submit" value="Import" />*@
+            <input name="btn_edit" id="btn_edit" class="btn btn-palegreen" type="submit" value="Publish" />
+            <input name="btn_cancel" id="btn_cancel" class="btn btn btn-danger" value="Cancel" onclick="@("window.location.href='" + @Url.Action("Index", "imp") + "'");" />
+
+
+        </div>
+    </div>
+    <div class="page-body">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="widget flat">
+                    <div class="widget-header bordered-bottom bordered-orange">
+                        <i class="widget-icon glyphicon glyphicon-plus orange"></i>
+                        <span class="widget-caption">Download Import Template</span>
+                    </div><!--Widget Header-->
+                    <div class="widget-body">
+
+                        <div id='external-events'>
+
+                            <div id="excel" class='external-event' onclick="location.href='@Url.Action("DownLoadExcelFile", "imp")'">Customer</div>
+                            <div class='external-event'>Accounts</div>
+                            <div class='external-event'>Loans</div>
+                            <div class='external-event'>Chart of Accounts</div>
+                            <div class='external-event'>Others</div>
+                            <p>
+                                <label>
+                                    <input type="checkbox" id='drop-remove' checked="checked">
+                                    <span class="text">Remove After Drop</span>
+
+                                    
+                                  
+                                        
+
+                                            <div class="widget-body">
+                                               
+                                                <hr class="wide" />
+                                                                                          
+
+
+                                                
+                                                <span class="input-group-btn">
+                                                    <span class="btn btn-azure btn-file">
+                                                        Browse <input id="file" type="file" name="file" size="40">
+                                                    </span>
+                                                </span>
+                                              
+
+                                            </div>
+
+
+
+</label>
+                                    </p>
+                                </div>
+
+                    </div><!--Widget Body-->
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <div class="widget flat">
+                    <div class="widget-header bordered-bottom bordered-sky">
+                        <i class="widget-icon fa fa-calendar sky"></i>
+                        <span class="widget-caption">Data Preview</span>
+                    </div><!--Widget Header-->
+                    <div class="widget-body">
+                        <div id='calendar'></div>
+                    </div><!--Widget Body-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+ 
+    <script type="text/javascript">
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    </script>
+
